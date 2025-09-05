@@ -97,19 +97,19 @@ export default function CurrentEvent() {
         >
           <source
             media="(min-width: 1280px)"
-            srcSet="/tcm-table-illus-2048.jpg"
+            srcSet="tcm-table-illus-2048.jpg"
           />
           <source
             media="(min-width: 1024px)"
-            srcSet="/tcm-table-illus-1536.jpg"
+            srcSet="tcm-table-illus-1536.jpg"
           />
           <source
             media="(min-width: 640px)"
-            srcSet="/tcm-table-illus-1024.jpg"
+            srcSet="tcm-table-illus-1024.jpg"
           />
           <img
-            src="/tcm-table-illus-768.jpg"
-            srcSet="/tcm-table-illus-480.jpg 480w, /tcm-table-illus-768.jpg 768w, /tcm-table-illus-1024.jpg 1024w, /tcm-table-illus-1536.jpg 1536w, /tcm-table-illus-2048.jpg 2048w"
+            src="tcm-table-illus-768.jpg"
+            srcSet="tcm-table-illus-480.jpg 480w, tcm-table-illus-768.jpg 768w, tcm-table-illus-1024.jpg 1024w, tcm-table-illus-1536.jpg 1536w, tcm-table-illus-2048.jpg 2048w"
             sizes="100vw"
             alt=""
             aria-hidden="true"
