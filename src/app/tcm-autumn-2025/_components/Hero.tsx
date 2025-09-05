@@ -27,28 +27,6 @@ export default function Hero() {
     });
   }, [cupControls, steamControls, prefersReducedMotion]);
 
-  const pause = () => {
-    cupControls.stop();
-    steamControls.stop();
-  };
-  const resume = () => {
-    if (prefersReducedMotion) return;
-    cupControls.start({
-      scale: [1, 1.02, 1],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        repeatType: "mirror",
-        ease: "easeInOut",
-      },
-    });
-    steamControls.start({
-      y: [8, -14],
-      opacity: [0.0, 1, 0],
-      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-    });
-  };
-
   return (
     <section id="hero" aria-labelledby="herotitle" className="relative isolate">
       <div
