@@ -8,6 +8,7 @@ import {
 } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { easeOutCubic } from "../constants";
+import Image from "next/image";
 
 export default function AboutUs() {
   const reduce = useReducedMotion();
@@ -65,7 +66,26 @@ export default function AboutUs() {
   } as const;
 
   return (
-    <section id="about" className="mx-auto w-full max-w-[400px] py-16 md:py-24">
+    <section
+      id="about"
+      className="relative mx-auto w-full max-w-[400px] py-16 md:py-24"
+    >
+      {/* Mobile scroll hint (hidden after first scroll) */}
+      {isMobile && !hasScrolled && (
+        <div
+          aria-hidden
+          className="absolute top-4 left-1/2 -translate-x-1/2 md:hidden pointer-events-none select-none"
+        >
+          <Image
+            src="down-arrow.svg"
+            alt=""
+            width={36}
+            height={36}
+            priority
+            className="opacity-70"
+          />
+        </div>
+      )}
       <motion.h2
         ref={headingRef}
         className="font-archivo-black text-6xl md:text-7xl leading-tight tracking-tight text-center"
