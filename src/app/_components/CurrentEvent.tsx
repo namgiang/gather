@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import RegisterCTA from "./RegisterCTA";
+import { durationMedium } from "../constants";
 export default function CurrentEvent() {
   const pictureRef = useRef<HTMLElement | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
@@ -36,7 +37,7 @@ export default function CurrentEvent() {
           { opacity: 0, transform: "translateY(24px)" },
           { opacity: 1, transform: "translateY(0)" },
         ],
-        { duration: 400, easing: easeOutCubic, fill: "forwards" }
+        { duration: durationMedium, easing: easeOutCubic, fill: "forwards" }
       );
     }
 
@@ -46,7 +47,7 @@ export default function CurrentEvent() {
           { opacity: 0, transform: "rotate(20deg) scale(0.94)" },
           { opacity: 1, transform: "rotate(0deg) scale(1)" },
         ],
-        { duration: 400, easing: easeOutCubic, fill: "forwards" }
+        { duration: durationMedium, easing: easeOutCubic, fill: "forwards" }
       );
     }
   }, []);

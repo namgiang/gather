@@ -13,13 +13,12 @@ export default function Home() {
   const [ready, setReady] = useState(false);
   const raf2Ref = useRef<number | null>(null);
   const heroVariants = {
-    hidden: { opacity: 0, y: 24, rotate: -6, filter: "blur(2px)" },
+    hidden: { opacity: 0, y: 24, rotate: -6 },
     show: {
       opacity: 1,
       y: 0,
       rotate: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.55, ease: easeOutCubic },
+      transition: { duration: 0.6, ease: easeOutCubic },
     },
   } as const;
 

@@ -7,8 +7,7 @@ import {
   useAnimationControls,
 } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { easeOutCubic } from "../constants";
-import Image from "next/image";
+import { durationMedium, easeOutCubic } from "../constants";
 
 export default function AboutUs() {
   const reduce = useReducedMotion();
@@ -74,16 +73,9 @@ export default function AboutUs() {
       {isMobile && !hasScrolled && (
         <div
           aria-hidden
-          className="absolute top-4 left-1/2 -translate-x-1/2 md:hidden pointer-events-none select-none"
+          className="absolute top-4 left-1/2 -translate-x-1/2 md:hidden pointer-events-none select-none text-3xl leading-none text-[#1A1A1A]/70"
         >
-          <Image
-            src="down-arrow.svg"
-            alt=""
-            width={36}
-            height={36}
-            priority
-            className="opacity-70"
-          />
+          ↓
         </div>
       )}
       <motion.h2
