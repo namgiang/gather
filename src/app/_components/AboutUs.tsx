@@ -74,7 +74,7 @@ export default function AboutUs() {
         initial={reduce ? undefined : "hidden"}
         animate={controls}
       >
-        We create dining experience & connect people
+        We create dining experience to connect people
       </motion.h2>
     </section>
   );
