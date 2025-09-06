@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import RegisterCTA from "./RegisterCTA";
 export default function CurrentEvent() {
   const pictureRef = useRef<HTMLElement | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
@@ -45,7 +46,7 @@ export default function CurrentEvent() {
           { opacity: 0, transform: "rotate(20deg) scale(0.94)" },
           { opacity: 1, transform: "rotate(0deg) scale(1)" },
         ],
-        { duration: 300, easing: easeOutCubic, fill: "forwards" }
+        { duration: 350, easing: easeOutCubic, fill: "forwards" }
       );
     }
   }, []);
@@ -67,8 +68,9 @@ export default function CurrentEvent() {
           <h2 className="text-3xl sm:text-4xl font-archivo-black leading-tight">
             TCM Dinner
           </h2>
-          <p className="mt-1 italic md:text-md text-[#3F51B5]">
-            T•C•M: Traditional Chinese Medicine
+          {/* <p className="mt-1 italic md:text-md text-[#3F51B5]">T•C•M</p> */}
+          <p className="italic md:text-md text-[#3F51B5]">
+            Traditional Chinese Medicine
           </p>
           <ul className="mt-6 space-y-2 text-lg">
             <li>
@@ -76,23 +78,19 @@ export default function CurrentEvent() {
               18:30 - 22:00
             </li>
             <li>
-              <span className="font-semibold">Where:</span> Bonjour Caphe
+              <span className="font-semibold">Where:</span> Bonjour Càphê,
+              Moermanskkade 4, Amsterdam
             </li>
           </ul>
           <div className="mt-6">
-            <a
-              href="#register"
-              className="inline-flex font-bold items-center rounded-xl px-4 py-2 bg-[var(--btn)] text-white font-semibold shadow-sm hover:brightness-105 active:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--btn)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FFF7ED] transition-colors"
-            >
-              REGISTER HERE
-            </a>
+            <RegisterCTA />
           </div>
         </div>
       </div>
-      <div className="relative min-h-[75svh] lg:min-h-[80svh] isolate overflow-hidden flex items-end">
+      <div className="relative min-h-[75svh] lg:min-h-[80svh] isolate overflow-hidden flex items-end hidden sm:block">
         <picture
           ref={pictureRef}
-          className="pointer-events-none absolute inset-0 hidden sm:block"
+          className="pointer-events-none absolute inset-0"
           style={{ opacity: 0, transform: "translateY(24px)" }}
         >
           <source

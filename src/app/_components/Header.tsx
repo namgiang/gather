@@ -43,9 +43,19 @@ export default function Header({
       <div className="w-full px-4 py-3 flex items-center justify-between">
         {/* Left: Logo / Wordmark */}
         <div className="shrink-0">
-          <Link href="/" aria-label="Gather home" className="block select-none">
-            <span className="text-xl font-extrabold tracking-tight uppercase text-black">
-              Gather
+          <Link
+            href="/"
+            aria-label="Gather Home"
+            className="block select-none group"
+          >
+            <span
+              className="block h-8 w-[120px] bg-black transition-colors duration-200 group-hover:bg-[#E79AB2]"
+              style={{
+                WebkitMask: "url(/logo.svg) left center / contain no-repeat",
+                mask: "url(/logo.svg) left center / contain no-repeat",
+              }}
+            >
+              <span className="sr-only">Gather</span>
             </span>
           </Link>
         </div>
