@@ -16,7 +16,13 @@ function RegisterCTA() {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
     >
-      <span className="relative z-10">REGISTER HERE</span>
+      <motion.span
+        className="relative z-10 block origin-bottom"
+        animate={hovered && !reduce ? { scale: 1.05 } : { scale: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 18 }}
+      >
+        REGISTER HERE
+      </motion.span>
       <svg
         aria-hidden
         className="absolute left-0 right-0 -bottom-1 h-2 w-full"
