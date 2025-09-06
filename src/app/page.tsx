@@ -22,7 +22,7 @@ export default function Home() {
           style={{ transformOrigin: "bottom right" }}
           initial={reduce ? undefined : { opacity: 0, y: 24, rotate: -6 }}
           animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0, rotate: 0 }}
-          transition={{ duration: 0.3, ease: easeOutCubic }}
+          transition={{ duration: 0.4, ease: easeOutCubic }}
         >
           GATHER
         </motion.h1>

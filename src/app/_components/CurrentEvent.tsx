@@ -46,7 +46,7 @@ export default function CurrentEvent() {
           { opacity: 0, transform: "rotate(20deg) scale(0.94)" },
           { opacity: 1, transform: "rotate(0deg) scale(1)" },
         ],
-        { duration: 350, easing: easeOutCubic, fill: "forwards" }
+        { duration: 400, easing: easeOutCubic, fill: "forwards" }
       );
     }
   }, []);
