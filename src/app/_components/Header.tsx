@@ -51,8 +51,8 @@ export default function Header({
             <span
               className="block h-8 w-[120px] bg-black transition-colors duration-200 group-hover:bg-[#E79AB2]"
               style={{
-                WebkitMask: "url(/logo.svg) left center / contain no-repeat",
-                mask: "url(/logo.svg) left center / contain no-repeat",
+                WebkitMask: "url(logo.svg) left center / contain no-repeat",
+                mask: "url(logo.svg) left center / contain no-repeat",
               }}
             >
               <span className="sr-only">Gather</span>
