@@ -76,7 +76,7 @@ export default function AboutUs() {
       opacity: 1,
       y: 0,
       rotate: 0,
-      transition: { duration: 0.4, ease: easeOutCubic },
+      transition: { duration: 0.9, ease: easeOutCubic },
     },
   } as const;
 
@@ -99,7 +99,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="relative mx-auto w-full max-w-[420px] py-12 md:py-20"
+      className="relative mx-auto w-full max-w-[420px] py-16 md:py-24"
     >
       {/* Rotated background layer */}
       <motion.div
