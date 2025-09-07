@@ -99,7 +99,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="relative mx-auto w-full max-w-[420px] py-16 md:py-24"
+      className="relative mx-auto w-full max-w-[420px] py-12 md:py-20"
     >
       {/* Rotated background layer */}
       <motion.div
