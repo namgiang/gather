@@ -18,7 +18,7 @@ export default function Contact() {
               className="no-underline relative transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B7C5A3]"
             >
               <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat group-hover:bg-[length:100%_2px] hover:bg-[length:100%_2px] focus:bg-[length:100%_2px] transition-[background-size] duration-300 ease-out [background-position:0_100%]">
-              gather.amsterdam@gmail.com
+                gather.amsterdam@gmail.com
               </span>
             </Link>
           </p>
