@@ -15,9 +15,11 @@ export default function Contact() {
           <p className="mt-3 text-xl md:text-2xl font-bold leading-snug break-words">
             <Link
               href="mailto:gather.amsterdam@gmail.com"
-              className="underline decoration-2 decoration-white underline-offset-[6px] transition-colors hover:decoration-[#B7C5A3]"
+              className="no-underline relative transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B7C5A3]"
             >
+              <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat group-hover:bg-[length:100%_2px] hover:bg-[length:100%_2px] focus:bg-[length:100%_2px] transition-[background-size] duration-300 ease-out [background-position:0_100%]">
               gather.amsterdam@gmail.com
+              </span>
             </Link>
           </p>
         </div>
@@ -27,9 +29,11 @@ export default function Contact() {
             href="https://instagram.com/gather.ams"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 decoration-neutral-400 hover:decoration-[#B7C5A3] transition-colors flex items-center gap-1"
+            className="group relative no-underline flex items-center gap-1 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B7C5A3]"
           >
-            Instagram
+            <span className="bg-gradient-to-r from-[#B7C5A3] to-[#B7C5A3] bg-[length:0%_2px] bg-left-bottom bg-no-repeat group-hover:bg-[length:100%_2px] hover:bg-[length:100%_2px] focus:bg-[length:100%_2px] transition-[background-size] duration-300 ease-out [background-position:0_100%]">
+              Instagram
+            </span>
           </motion.a>
           <div className="pt-2 w-full flex justify-start md:justify-center">
             <Image
