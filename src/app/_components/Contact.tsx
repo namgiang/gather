@@ -9,7 +9,7 @@ export default function Contact() {
       <div className="w-full max-w-[400px] mx-auto space-y-10 md:space-y-12">
         <div className="md:text-center">
           <h3 className="text-lg md:text-xl font-semibold text-neutral-400 tracking-tight">
-            Reach out:
+            Contact us:
           </h3>
           <p className="mt-3 text-xl md:text-2xl font-bold leading-snug break-words">
             <Link
@@ -28,7 +28,7 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="underline underline-offset-4 decoration-neutral-400 hover:decoration-[#B7C5A3] transition-colors flex items-center gap-1"
           >
-            Instagram <span aria-hidden>→</span>
+            Instagram
           </motion.a>
         </div>
       </div>
