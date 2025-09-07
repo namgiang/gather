@@ -44,7 +44,7 @@ export default function CurrentEvent() {
     if (card) {
       card.animate(
         [
-          { opacity: 0, transform: "rotate(20deg) scale(0.94)" },
+          { opacity: 0, transform: "rotate(-16deg) scale(0.9)" },
           { opacity: 1, transform: "rotate(0deg) scale(1)" },
         ],
         { duration: durationMedium, easing: easeOutCubic, fill: "forwards" }
@@ -59,9 +59,10 @@ export default function CurrentEvent() {
           ref={boxRef}
           className="pointer-events-auto w-full max-w-[400px] sm:w-[min(34vw,360px)] sm:min-w-[320px] p-6 sm:p-8 md:p-10 text-[#1A1A1A]"
           style={{
-            border: "24px solid transparent",
+            border: "20px solid transparent",
+            borderRadius: "20px",
             background:
-              "linear-gradient(#FFF7ED,#FFF7ED) padding-box, conic-gradient(#9CB2F0 25%, #E7EBD9 0 50%, #9CB2F0 0 75%, #E7EBD9 0) 0 0/24px 24px round border-box",
+              "linear-gradient(#FFF7ED,#FFF7ED) padding-box, conic-gradient(#9CB2F0 25%, #E7EBD9 0 50%, #9CB2F0 0 75%, #E7EBD9 0) 0 0/20px 20px round border-box",
             opacity: 0,
             transform: "rotate(20deg) scale(0.94)",
           }}
@@ -89,7 +90,7 @@ export default function CurrentEvent() {
           </div>
         </div>
       </div>
-      <div className="relative min-h-[75svh] lg:min-h-[80svh] isolate overflow-hidden flex items-end hidden sm:block">
+      <div className="relative min-h-[75svh] lg:min-h-[80svh] isolate overflow-hidden flex items-end hidden sm:block rounded-[20px]">
         <picture
           ref={pictureRef}
           className="pointer-events-none absolute inset-0"
