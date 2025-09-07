@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 
 export default function Contact() {
@@ -20,7 +21,7 @@ export default function Contact() {
             </Link>
           </p>
         </div>
-        <div className="flex flex-col items-start md:items-center md:text-center gap-6 pt-2 text-lg md:text-xl font-semibold">
+        <div className="flex flex-col items-start md:items-center md:text-center gap-6 pt-1 text-lg md:text-xl font-semibold">
           <motion.a
             whileHover={{ x: 4 }}
             href="https://instagram.com/gather.ams"
@@ -30,6 +31,16 @@ export default function Contact() {
           >
             Instagram
           </motion.a>
+          <div className="pt-2 w-full flex justify-start md:justify-center">
+            <Image
+              src="/logo-white.svg"
+              alt="Gather logo"
+              width={160}
+              height={126}
+              priority={false}
+              className="opacity-90 hover:opacity-100 transition-opacity w-16 h-auto"
+            />
+          </div>
         </div>
       </div>
     </section>
