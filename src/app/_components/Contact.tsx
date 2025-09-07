@@ -33,7 +33,7 @@ export default function Contact() {
           </motion.a>
           <div className="pt-2 w-full flex justify-start md:justify-center">
             <Image
-              src="/logo-white.svg"
+              src="logo-white.svg"
               alt="Gather logo"
               width={160}
               height={126}
