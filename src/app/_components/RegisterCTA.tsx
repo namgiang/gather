@@ -28,7 +28,7 @@ function RegisterCTA() {
   }, []);
   return (
     <motion.a
-      href="#register"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSf_3akuxvEW4Dg5lvfkxFsVZnmRFlyFgHEAQ4CJnnoSxqwlww/viewform?usp=dialog"
       className="relative inline-block font-semibold text-lg md:text-xl text-[#D86A85] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D86A85] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FBE9CE]"
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
