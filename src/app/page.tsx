@@ -46,7 +46,10 @@ export default function Home() {
     const timer = setTimeout(() => {
       if (!h1Ref.current) return;
       const current = getComputedStyle(h1Ref.current).transform;
-      if (initialTransformRef.current && current === initialTransformRef.current) {
+      if (
+        initialTransformRef.current &&
+        current === initialTransformRef.current
+      ) {
         // Animation didn't progress; force end state.
         setFallbackApplied(true);
       }
@@ -71,7 +74,13 @@ export default function Home() {
             backfaceVisibility: "hidden",
             perspective: 1000,
             // Fallback forces final state without animation if needed
-            ...(fallbackApplied ? { transform: "translateY(0) rotate(0deg)", opacity: 1, transition: "none" } : {}),
+            ...(fallbackApplied
+              ? {
+                  transform: "translateY(0) rotate(0deg)",
+                  opacity: 1,
+                  transition: "none",
+                }
+              : {}),
           }}
           initial={false}
           animate={
