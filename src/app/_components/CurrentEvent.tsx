@@ -73,7 +73,7 @@ export default function CurrentEvent() {
           {/* <p className="mt-1 italic md:text-md text-[#3F51B5]">T•C•M</p> */}
           <p className="italic md:text-md text-[#3F51B5]">
             4-course menu inspired by Traditional Chinese Medicine and{" "}
-            <span className="font-semibold">food as a medicine</span>
+            <span className="font-semibold">food for healing</span>
           </p>
           <ul className="mt-6 space-y-2 text-lg">
             <li>
