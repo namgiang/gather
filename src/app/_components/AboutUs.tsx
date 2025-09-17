@@ -99,7 +99,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="relative mx-auto w-full max-w-[420px] py-16 md:py-24"
+      className="relative mx-auto w-full max-w-[460px] py-16 md:py-24"
     >
       {/* Rotated background layer */}
       <motion.div
@@ -122,7 +122,7 @@ export default function AboutUs() {
       {/* Mobile scroll hint */}
       <motion.h2
         ref={headingRef}
-        className="relative z-20 font-archivo-black text-6xl md:text-7xl leading-tight tracking-tight text-center"
+        className="relative z-20 font-archivo-black text-[3.1rem] md:text-7xl leading-tight tracking-tight text-center"
         style={{ transformOrigin: "bottom right" }}
         variants={variants}
         initial={reduce ? undefined : "hidden"}
