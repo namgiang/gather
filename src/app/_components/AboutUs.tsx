@@ -81,10 +81,10 @@ export default function AboutUs() {
   } as const;
 
   const bgVariants = {
-    initialMount: { opacity: 0, y: 60, scale: 0.6 },
+    initialMount: { opacity: 0, y: -100, scale: 0.6 },
     parked: {
       opacity: 1,
-      y: 20,
+      y: -50,
       scale: 0.7,
       transition: { duration: 0.9, ease: easeOutCubic },
     },
@@ -99,7 +99,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="relative mx-auto w-full max-w-[460px] py-16 md:py-24"
+      className="relative mx-auto w-full max-w-[460px] py-8 md:py-10"
     >
       {/* Rotated background layer */}
       <motion.div
@@ -122,7 +122,7 @@ export default function AboutUs() {
       {/* Mobile scroll hint */}
       <motion.h2
         ref={headingRef}
-        className="relative z-20 font-archivo-black text-[3.1rem] md:text-7xl leading-tight tracking-tight text-center"
+        className="relative z-20 font-archivo-black text-[3.1rem] md:text-7xl leading-snug tracking-tight text-center"
         style={{ transformOrigin: "bottom right" }}
         variants={variants}
         initial={reduce ? undefined : "hidden"}

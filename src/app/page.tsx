@@ -66,7 +66,7 @@ export default function Home() {
       >
         <motion.h1
           ref={h1Ref}
-          className="font-archivo-black text-[3.8rem] md:text-[6rem] lg:text-[7rem] my-6 md:my-0 text-center font-extrabold tracking-tight md:leading-[105%]"
+          className="font-archivo-black text-[3.8rem] md:text-[6rem] lg:text-[7rem] my-5 md:my-2 text-center font-extrabold tracking-tight md:leading-[105%]"
           style={{
             transformOrigin: "bottom right",
             willChange: "transform, opacity",
