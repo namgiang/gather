@@ -12,7 +12,7 @@ import { easeOutCubic } from "../constants";
 export default function AboutUs() {
   const reduce = useReducedMotion();
   const headingRef = useRef<HTMLHeadingElement | null>(null);
-  const inView = useInView(headingRef, { amount: 0.3, once: false });
+  const inView = useInView(headingRef, { amount: 0.2, once: false });
   const controls = useAnimationControls();
   const bgControls = useAnimationControls();
   const [hasScrolled, setHasScrolled] = useState(false);
