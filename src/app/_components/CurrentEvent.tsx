@@ -85,7 +85,7 @@ export default function CurrentEvent() {
               Moermanskkade 4, Amsterdam
             </li>
           </ul>
-          <div className="mt-6 font-semibold">SOLD OUT</div>
+          <div className="mt-6 font-semibold text-[#D86A85]">SOLD OUT</div>
         </div>
       </div>
       <div className="relative min-h-[75svh] lg:min-h-[80svh] isolate overflow-hidden flex items-end hidden sm:block rounded-[20px]">
