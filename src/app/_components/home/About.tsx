@@ -11,9 +11,9 @@ export default function About() {
         src="flower.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[70px] -right-[60px] size-[230px] object-cover opacity-[.85] mix-blend-multiply lg:-top-[60px] lg:bottom-auto lg:-right-[120px] lg:size-[560px] lg:opacity-90"
+        className="pointer-events-none absolute -bottom-[70px] -right-[60px] size-[230px] object-cover opacity-[.85] mix-blend-multiply lg:-bottom-[120px] lg:-right-[70px] lg:size-[560px] lg:-rotate-12 lg:opacity-90"
       />
-      <div className="relative mx-auto flex max-w-[1100px] flex-col gap-[18px] px-6 pb-[150px] pt-16 lg:gap-7 lg:py-28">
+      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[150px] pt-16 lg:gap-7 lg:py-28">
         <Hearts className="hidden lg:block" />
         <p className="m-0 text-[13px] font-bold uppercase tracking-[.1em] lg:text-sm">
           About Gather

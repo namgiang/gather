@@ -4,7 +4,7 @@ import { CONTACT } from "../../_data/events";
 export default function SiteFooter() {
   return (
     <footer id="contact" className="bg-ink text-cream">
-      <div className="mx-auto flex max-w-[1100px] flex-col gap-3 px-6 pb-14 pt-[52px] lg:flex-row lg:flex-wrap lg:items-end lg:justify-between lg:gap-10 lg:py-[88px]">
+      <div className="mx-auto flex max-w-[1280px] flex-col gap-3 px-6 pb-14 pt-[52px] lg:flex-row lg:flex-wrap lg:items-end lg:justify-between lg:gap-10 lg:py-[88px]">
         <div className="flex flex-col gap-3 lg:gap-3.5">
           <p className="m-0 text-base font-semibold text-[#B3AFA8] lg:text-lg">Contact us</p>
           <a
