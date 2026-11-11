@@ -10,13 +10,30 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo-black), ui-sans-serif, system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+}
+
+/* Gather brand palette */
+@theme {
+  --color-cream: #fff7ed;
+  --color-ink: #1a1a1a;
+  --color-tomato: #ca4e26;
+  --color-rose: #d86a85;
+  --color-blush: #f7c9d6;
+  --color-periwinkle: #9cb2f0;
+  --color-lilac: #dccdf7;
+  --color-sage: #b9d59f;
+  --color-peach: #f7c6a8;
+  --color-butter: #ffe58f;
+  --color-indigo: #3f51b5;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  /* Use Archivo (display) for body text with system fallbacks */
-  font-family: var(--font-display), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* Utility: force Archivo Black (single heavy weight) */
@@ -50,4 +67,195 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+
+@layer components {
+  /* ==========================================================================
+     Gather home: past gatherings
+     Motion system: small things are springy, big things are calm ease-out,
+     returns are faster than lifts, one ambient loop (the sticker).
+     ========================================================================== */
+  .gl-root section[id],
+  .gl-root footer[id] { scroll-margin-top: 72px; }
+
+  /* wordmark letters hop */
+  .gl-hop span { display: inline-block; transition: transform 0.18s ease-out, color 0.15s; }
+  .gl-hop span:active {
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s;
+    transform: translateY(-12px) rotate(-8deg);
+    color: var(--color-tomato);
+  }
+  @media (hover: hover) {
+    .gl-hop span:hover {
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s;
+      transform: translateY(-14px) rotate(-8deg);
+      color: var(--color-tomato);
+    }
+  }
+
+  /* pills, plates, picks */
+  .gl-press { transition: transform 0.12s ease-out; }
+  .gl-press:active { transform: scale(0.96); }
+  .gl-plate { transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, translate 0.15s ease-out; }
+  .gl-plate:active { transform: rotate(-10deg) scale(1.05); }
+  @media (hover: hover) {
+    .gl-pill:hover, .gl-pick:hover {
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s;
+      transform: translateY(-3px) rotate(-2deg);
+    }
+    .gl-plate:hover {
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s;
+      transform: rotate(-10deg) scale(1.06);
+    }
+  }
+  .gl-pill, .gl-pick { transition: transform 0.15s ease-out, background 0.15s; }
+
+  /* photo buttons */
+  .gl-pbtn {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    cursor: zoom-in;
+    display: block;
+  }
+  .gl-pbtn:focus-visible,
+  .gl-press:focus-visible,
+  .gl-plate:focus-visible,
+  .gl-pill:focus-visible,
+  .gl-pick:focus-visible {
+    outline: 3px solid var(--color-tomato);
+    outline-offset: 3px;
+  }
+
+  /* polaroids lift on hover; settle in on scroll for touch */
+  .gl-pol { transition: transform 0.18s ease-out, box-shadow 0.18s ease-out; }
+  @media (hover: hover) {
+    .gl-pol:hover {
+      transition: transform 0.26s cubic-bezier(0.215, 0.61, 0.355, 1), box-shadow 0.26s;
+      transform: rotate(0deg) translateY(-8px) scale(1.03) !important;
+      box-shadow: 0 20px 36px rgba(60, 40, 20, 0.2) !important;
+      z-index: 5;
+    }
+  }
+
+  /* protein zoom */
+  .gl-zoom { transition: transform 0.55s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+  /* fade when swapping a course photo */
+  .gl-fade { animation: gl-fade 0.22s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  @keyframes gl-fade { from { opacity: 0; } }
+
+  /* hearts lean toward each other */
+  .gl-hearts .hl, .gl-hearts .hr {
+    transition: transform 0.2s ease-out;
+    transform-box: fill-box;
+    transform-origin: 50% 60%;
+  }
+  @media (hover: hover) {
+    .gl-hearts:hover .hl, .gl-hearts:hover .hr {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .gl-hearts:hover .hl { transform: translateX(5px) rotate(8deg); }
+    .gl-hearts:hover .hr { transform: translateX(-5px) rotate(-8deg); }
+  }
+
+  /* the one ambient loop */
+  .gl-spin { animation: gl-spin 32s linear infinite; }
+  @keyframes gl-spin { to { transform: rotate(360deg); } }
+
+  /* checker frames */
+  .gl-checker-blue {
+    border: 12px solid transparent;
+    background:
+      linear-gradient(var(--color-cream), var(--color-cream)) padding-box,
+      conic-gradient(#9cb2f0 25%, #f7c9d6 0 50%, #9cb2f0 0 75%, #f7c9d6 0) 0 0 / 18px 18px round border-box;
+  }
+  .gl-checker-sage {
+    border: 14px solid transparent;
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      conic-gradient(#b9d59f 25%, #fff7ed 0 50%, #b9d59f 0 75%, #fff7ed 0) 0 0 / 18px 18px round border-box;
+  }
+  @media (min-width: 1024px) {
+    .gl-checker-blue {
+      border-width: 18px;
+      background:
+        linear-gradient(var(--color-cream), var(--color-cream)) padding-box,
+        conic-gradient(#9cb2f0 25%, #f7c9d6 0 50%, #9cb2f0 0 75%, #f7c9d6 0) 0 0 / 24px 24px round border-box;
+    }
+    .gl-checker-sage {
+      border-width: 18px;
+      background:
+        linear-gradient(#fff, #fff) padding-box,
+        conic-gradient(#b9d59f 25%, #fff7ed 0 50%, #b9d59f 0 75%, #fff7ed 0) 0 0 / 20px 20px round border-box;
+    }
+  }
+
+  /* horizontal photo strip on mobile */
+  .gl-strip {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 14px 24px 26px;
+    scrollbar-width: none;
+  }
+  .gl-strip::-webkit-scrollbar { display: none; }
+  .gl-strip > * { scroll-snap-align: center; flex: 0 0 auto; }
+
+  /* photo viewer */
+  .gl-lb-in { animation: gl-lbin 0.2s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .gl-lb-next { animation: gl-lbnext 0.22s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .gl-lb-prev { animation: gl-lbprev 0.22s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .gl-lb-nav { transition: transform 0.15s ease-out; }
+  @media (hover: hover) {
+    .gl-lb-nav:hover {
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform: scale(1.08);
+    }
+  }
+  @keyframes gl-lbin { from { opacity: 0; } }
+  @keyframes gl-lbnext { from { opacity: 0; transform: translateX(28px); } }
+  @keyframes gl-lbprev { from { opacity: 0; transform: translateX(-28px); } }
+
+  /* touch: the delights happen on scroll instead of hover */
+  @supports (animation-timeline: view()) {
+    @media (hover: none) {
+      .gl-pol {
+        animation: gl-settle linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 35%;
+      }
+      .gl-hearts .hl {
+        animation: gl-leanl linear both;
+        animation-timeline: view();
+        animation-range: cover 20% cover 50%;
+      }
+      .gl-hearts .hr {
+        animation: gl-leanr linear both;
+        animation-timeline: view();
+        animation-range: cover 20% cover 50%;
+      }
+    }
+  }
+  @keyframes gl-settle {
+    from { rotate: -7deg; translate: 0 32px; opacity: 0.4; }
+    to { rotate: 0deg; translate: 0 0; opacity: 1; }
+  }
+  @keyframes gl-leanl { from { transform: none; } to { transform: translateX(5px) rotate(8deg); } }
+  @keyframes gl-leanr { from { transform: none; } to { transform: translateX(-5px) rotate(-8deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gl-spin, .gl-lb-in, .gl-lb-next, .gl-lb-prev, .gl-fade,
+    .gl-pol, .gl-hearts .hl, .gl-hearts .hr { animation: none !important; }
+    .gl-hop span, .gl-press, .gl-plate, .gl-pill, .gl-pick, .gl-pol,
+    .gl-zoom, .gl-hearts .hl, .gl-hearts .hr, .gl-lb-nav { transition: none !important; }
+  }
 }
