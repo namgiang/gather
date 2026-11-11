@@ -72,11 +72,11 @@ export default function Community() {
         </div>
 
         {/* desktop: loose pile */}
-        <div className="relative hidden h-[680px] min-w-0 flex-[0_1_480px] lg:block">
+        <div className="relative hidden h-[660px] min-w-0 flex-[0_1_480px] lg:block">
           <Polaroid group="com" index={0} photo={P[0]} rotate={-5} className="absolute left-0 top-0 w-[240px]" imgClassName="h-[280px]" />
           <Polaroid group="com" index={1} photo={P[1]} rotate={5} className="absolute right-0 top-10 w-[220px]" imgClassName="h-[200px]" />
-          <Polaroid group="com" index={2} photo={P[2]} rotate={2} className="absolute left-2.5 top-[330px] w-[230px]" imgClassName="h-[170px]" />
-          <Polaroid group="com" index={3} photo={P[3]} rotate={-4} className="absolute right-0 top-[330px] w-[230px]" imgClassName="h-[270px]" />
+          <Polaroid group="com" index={2} photo={P[2]} rotate={2} className="absolute left-2.5 top-[330px] w-[230px]" imgClassName="h-[200px]" />
+          <Polaroid group="com" index={3} photo={P[3]} rotate={-4} className="absolute right-0 top-[320px] w-[230px]" imgClassName="h-[240px]" />
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@ export default function Book() {
   return (
     <section id="book" className="border-t-2 border-ink bg-white">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-14 px-6 pb-[60px] pt-[52px] lg:flex-row lg:flex-wrap lg:items-center lg:gap-14 lg:py-24">
-        <div className="flex min-w-0 flex-col gap-3.5 lg:flex-[1.2_1_420px] lg:gap-5">
+        <div className="flex min-w-0 flex-col gap-3.5 lg:max-w-[590px] lg:flex-[1.2_1_420px] lg:gap-5">
           <h2 className="m-0 font-display text-[42px] font-normal leading-[.95] tracking-[-0.02em] lg:text-[clamp(44px,5.6vw,76px)]">
             Want Gather at your table?
           </h2>
