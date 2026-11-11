@@ -83,14 +83,24 @@ export default function TcmDinner() {
             })}
           </div>
 
-          <div className="rounded-2xl border-2 border-ink bg-white p-[18px] lg:rounded-[18px] lg:px-6 lg:py-[22px]">
-            <p className="m-0 text-xs font-bold uppercase tracking-[.1em] text-indigo lg:text-[13px]">
-              {course.n} · {course.stage}
-            </p>
-            <p className="m-0 mt-1.5 font-display text-[22px] leading-[1.15] lg:text-[28px] lg:leading-[1.1]">
-              {course.name}
-            </p>
-            <p className="m-0 mt-2 text-base leading-[1.5] lg:text-[17px]">{course.note}</p>
+          {/* All five cards share one grid cell, so the box is always as tall as the
+              longest description and the content below never jumps when you switch. */}
+          <div className="grid rounded-2xl border-2 border-ink bg-white p-[18px] lg:rounded-[18px] lg:px-6 lg:py-[22px]">
+            {TCM_COURSES.map((c, i) => (
+              <div
+                key={c.n}
+                aria-hidden={i !== sel}
+                className={`[grid-area:1/1] ${i === sel ? "" : "invisible"}`}
+              >
+                <p className="m-0 text-xs font-bold uppercase tracking-[.1em] text-indigo lg:text-[13px]">
+                  {c.n} · {c.stage}
+                </p>
+                <p className="m-0 mt-1.5 font-display text-[22px] leading-[1.15] lg:text-[28px] lg:leading-[1.1]">
+                  {c.name}
+                </p>
+                <p className="m-0 mt-2 text-base leading-[1.5] lg:text-[17px]">{c.note}</p>
+              </div>
+            ))}
           </div>
 
           <div className="mt-1.5 flex items-center gap-3 lg:mt-1 lg:gap-3.5">
