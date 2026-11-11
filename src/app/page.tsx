@@ -8,7 +8,7 @@ import { LightboxProvider } from "./_components/home/Lightbox";
 import SiteFooter from "./_components/home/SiteFooter";
 import SiteHeader from "./_components/home/SiteHeader";
 import TcmDinner from "./_components/home/TcmDinner";
-import { HeartsDivider } from "./_components/home/ui";
+import { Hearts } from "./_components/home/ui";
 
 export default function Home() {
   return (
@@ -19,7 +19,10 @@ export default function Home() {
           <Hero />
           <GatheringsIndex />
           <TcmDinner />
-          <HeartsDivider className="pb-11 lg:pb-[72px]" />
+          <div aria-hidden="true" className="flex justify-center pb-11 lg:pb-[72px]">
+            <Hearts width={72} className="lg:hidden" />
+            <Hearts width={64} className="hidden lg:block" />
+          </div>
           <GoiCuon />
           <Community />
           <Book />

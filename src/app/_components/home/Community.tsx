@@ -1,7 +1,7 @@
 "use client";
 
 import { COM, COM_PHOTOS } from "../../_data/events";
-import { Hearts, Polaroid, eyebrow } from "./ui";
+import { HeartsDivider, Polaroid, eyebrow } from "./ui";
 
 const icons = [
   <svg key="curry" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#CA4E26" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -30,16 +30,10 @@ export default function Community() {
       id="community"
       className="mx-auto max-w-[1100px] px-6 pb-14 pt-[52px] lg:py-24"
     >
-      <Hearts
+      <HeartsDivider
         left="#DCCDF7"
         right="#F7C6A8"
-        width={56}
-        className="mx-auto mb-[26px] block lg:hidden"
-      />
-      <Hearts
-        left="#DCCDF7"
-        right="#F7C6A8"
-        className="mx-auto -mt-10 mb-12 hidden lg:block"
+        className="mb-[26px] !max-w-none !px-0 lg:-mt-10 lg:mb-12"
       />
 
       <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">

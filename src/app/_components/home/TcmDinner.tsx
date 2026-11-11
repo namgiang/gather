@@ -33,7 +33,7 @@ export default function TcmDinner() {
   );
 
   return (
-    <section id="tcm" className="mx-auto max-w-[1280px] px-0 pb-[18px] pt-8 lg:px-6 lg:pb-24 lg:pt-14">
+    <section id="tcm" className="mx-auto max-w-[1280px] px-0 pb-0 pt-8 lg:px-6 lg:pb-24 lg:pt-14">
       <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:gap-14">
         {/* text + picker */}
         <div className="flex min-w-0 flex-col gap-3.5 px-6 lg:flex-1 lg:basis-[380px] lg:gap-5 lg:px-0">
@@ -156,7 +156,7 @@ export default function TcmDinner() {
       <p className="m-0 mt-7 px-6 text-xs font-bold uppercase tracking-[.1em] lg:hidden">
         From the night
       </p>
-      <div className="gl-strip lg:hidden">
+      <div className="gl-strip !pb-12 lg:hidden">
         {[
           { i: 6, w: "w-[230px]", r: -3 },
           { i: 7, w: "w-[180px]", r: 2 },

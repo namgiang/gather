@@ -142,12 +142,12 @@ export function HeartsDivider({
   return (
     <div
       aria-hidden="true"
-      className={`gl-hearts mx-auto flex max-w-[1280px] items-center gap-3.5 px-6 lg:gap-5 ${className}`}
+      className={`gl-hearts mx-auto flex max-w-[1280px] items-center justify-center gap-3.5 px-6 lg:gap-5 ${className}`}
     >
-      <span className="flex-1 border-t-2 border-dashed border-ink" />
+      <span className="hidden flex-1 border-t-2 border-dashed border-ink lg:block" />
       <Hearts left={left} right={right} width={56} className="lg:hidden" />
       <Hearts left={left} right={right} width={64} className="hidden lg:block" />
-      <span className="flex-1 border-t-2 border-dashed border-ink" />
+      <span className="hidden flex-1 border-t-2 border-dashed border-ink lg:block" />
     </div>
   );
 }
