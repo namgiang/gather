@@ -220,7 +220,6 @@ export function Sticker({
         src={src}
         alt=""
         aria-hidden="true"
-        loading="lazy"
         decoding="async"
         className="gl-sticker max-w-none lg:hidden"
         style={styleFor(m)}
@@ -230,7 +229,6 @@ export function Sticker({
           src={src}
           alt=""
           aria-hidden="true"
-          loading="lazy"
           decoding="async"
           className="gl-sticker hidden max-w-none lg:block"
           style={styleFor(d)}
@@ -245,7 +243,7 @@ export function StickerLayer({ children }: { children: ReactNode }) {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 -z-10 overflow-clip"
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
     >
       {children}
     </div>
