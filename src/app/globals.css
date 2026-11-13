@@ -77,7 +77,7 @@ body {
   .gl-root footer[id] { scroll-margin-top: 72px; }
 
   /* wordmark letters hop */
-  .gl-hop span { display: inline-block; transition: transform 0.18s ease-out, color 0.15s; }
+  .gl-hop span { display: inline-block; transform: var(--t, none); transition: transform 0.18s ease-out, color 0.15s; }
   .gl-hop span:active {
     transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s;
     transform: translateY(-12px) rotate(-8deg);

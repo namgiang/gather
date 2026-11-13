@@ -37,7 +37,7 @@ export default function Hero() {
             key={l.c + (l.t ?? "")}
             aria-hidden="true"
             className={l.accent ? "text-tomato" : undefined}
-            style={{ transform: l.t }}
+            style={l.t ? ({ "--t": l.t } as React.CSSProperties) : undefined}
           >
             {l.c}
           </span>
