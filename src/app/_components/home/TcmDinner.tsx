@@ -40,7 +40,7 @@ export default function TcmDinner() {
           <p className={`${eyebrow} text-cobalt`}>
             {TCM.no} · {TCM.kind} · {TCM.date}
           </p>
-          <h3 className="m-0 font-display text-[38px] font-normal leading-[.98] tracking-[-0.02em] lg:text-[clamp(44px,5.4vw,76px)] lg:leading-[.95]">
+          <h3 className="m-0 font-display text-[38px] font-black leading-[.98] tracking-[-0.02em] lg:text-[clamp(44px,5.4vw,76px)] lg:leading-[.95]">
             {TCM.title}
           </h3>
           <p className="m-0 text-[17px] leading-[1.5] lg:text-xl">
@@ -70,7 +70,7 @@ export default function TcmDinner() {
                   onClick={() => setSel(i)}
                   aria-pressed={on}
                   aria-label={c.stage}
-                  className={`gl-plate size-[58px] cursor-pointer rounded-full border-[3px] border-ink p-0 font-display text-[17px] lg:size-[76px] lg:text-[22px] ${
+                  className={`gl-plate size-[58px] cursor-pointer rounded-full border-[3px] border-ink p-0 font-display text-[17px] font-black lg:size-[76px] lg:text-[22px] ${
                     on
                       ? "bg-tomato text-white shadow-[0_6px_12px_rgba(60,40,20,.22)] lg:shadow-[0_8px_14px_rgba(60,40,20,.22)]"
                       : "bg-white text-ink"
@@ -95,7 +95,7 @@ export default function TcmDinner() {
                 <p className="m-0 text-xs font-bold uppercase tracking-[.1em] text-cobalt lg:text-[13px]">
                   {c.n} · {c.stage}
                 </p>
-                <p className="m-0 mt-1.5 font-display text-[22px] leading-[1.15] lg:text-[28px] lg:leading-[1.1]">
+                <p className="m-0 mt-1.5 font-display text-[22px] font-black leading-[1.15] lg:text-[28px] lg:leading-[1.1]">
                   {c.name}
                 </p>
                 <p className="m-0 mt-2 text-base leading-[1.5] lg:text-[17px]">{c.note}</p>
@@ -104,7 +104,7 @@ export default function TcmDinner() {
           </div>
 
           <div className="mt-1.5 flex items-center gap-3 lg:mt-1 lg:gap-3.5">
-            <span className="inline-block -rotate-8 rounded-[10px] border-[3px] border-tomato px-3 py-[5px] font-display text-lg text-tomato lg:px-3.5 lg:py-1.5 lg:text-[22px]">
+            <span className="inline-block -rotate-8 rounded-[10px] border-[3px] border-tomato px-3 py-[5px] font-display text-lg font-black text-tomato lg:px-3.5 lg:py-1.5 lg:text-[22px]">
               SOLD OUT
             </span>
             <span className="font-hand text-[22px] lg:text-2xl">{TCM.guests}</span>

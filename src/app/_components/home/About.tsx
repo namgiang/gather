@@ -18,7 +18,7 @@ export default function About() {
         <p className="m-0 text-[13px] font-bold uppercase tracking-[.1em] lg:text-sm">
           About Gather
         </p>
-        <h2 className="m-0 max-w-[820px] font-display text-[40px] font-normal leading-none tracking-[-0.02em] lg:text-[clamp(44px,6vw,84px)]">
+        <h2 className="m-0 max-w-[820px] font-display text-[40px] font-black leading-none tracking-[-0.02em] text-balance lg:text-[clamp(44px,6vw,84px)]">
           We create dining experiences that connect people.
         </h2>
         <p className="m-0 max-w-[540px] text-[17px] leading-[1.5] lg:text-xl">

@@ -30,7 +30,7 @@ export default function Hero() {
     >
       <h1
         aria-label="Gather"
-        className="gl-hop m-0 select-none whitespace-nowrap text-center font-display text-[70px] font-normal leading-[.9] tracking-[-0.035em] md:text-[clamp(96px,11vw,150px)] md:tracking-[-0.03em]"
+        className="gl-hop font-archivo-black m-0 select-none whitespace-nowrap text-balance text-center text-[70px] leading-[.9] tracking-[-0.035em] md:text-[clamp(96px,11vw,150px)] md:tracking-[-0.03em]"
       >
         {LETTERS.map((l) => (
           <span

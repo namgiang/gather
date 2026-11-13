@@ -25,9 +25,20 @@ type View = { group: GroupKey; index: number; dir: 1 | -1 };
 const arrow =
   "gl-lb-nav grid cursor-pointer place-items-center rounded-full border-2 border-ink";
 
+/** Visible, tabbable controls inside the dialog (skips the backdrop). */
+function focusableControls(root: HTMLElement): HTMLElement[] {
+  return Array.from(
+    root.querySelectorAll<HTMLElement>('button:not([disabled]):not([tabindex="-1"])'),
+  ).filter((el) => {
+    const s = getComputedStyle(el);
+    return s.display !== "none" && s.visibility !== "hidden";
+  });
+}
+
 export function LightboxProvider({ children }: { children: ReactNode }) {
   const [view, setView] = useState<View | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
   const returnFocus = useRef<HTMLElement | null>(null);
   const touchX = useRef<number | null>(null);
   const isOpen = view !== null;
@@ -50,22 +61,45 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  // Lock page scroll and move focus into the dialog while it's open.
+  // Lock page scroll and put focus on Close (visible ring) while open.
   useEffect(() => {
     if (!isOpen) return;
     const html = document.documentElement;
     const previous = html.style.overflow;
     html.style.overflow = "hidden";
-    dialogRef.current?.focus();
+    // focusVisible so the tomato ring shows on open, not only after Tab
+    closeBtnRef.current?.focus({ focusVisible: true });
     return () => {
       html.style.overflow = previous;
     };
   }, [isOpen]);
 
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === "Escape") close();
-    else if (e.key === "ArrowLeft") step(-1);
-    else if (e.key === "ArrowRight") step(1);
+    if (e.key === "Escape") {
+      close();
+      return;
+    }
+    if (e.key === "ArrowLeft") {
+      step(-1);
+      return;
+    }
+    if (e.key === "ArrowRight") {
+      step(1);
+      return;
+    }
+    if (e.key !== "Tab" || !dialogRef.current) return;
+
+    const list = focusableControls(dialogRef.current);
+    if (list.length === 0) return;
+    const first = list[0];
+    const last = list[list.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   };
 
   const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
@@ -92,14 +126,14 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
           role="dialog"
           aria-modal="true"
           aria-label="Photo viewer"
-          tabIndex={-1}
           onKeyDown={onKeyDown}
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
-          className="gl-lb-in fixed inset-0 z-[100] flex flex-col items-center justify-center px-3 pb-[104px] pt-16 outline-none md:px-24 md:pb-16 md:pt-[72px]"
+          className="gl-lb-in fixed inset-0 z-[100] flex flex-col items-center justify-center px-3 pb-[104px] pt-16 md:px-24 md:pb-16 md:pt-[72px]"
         >
           <button
             type="button"
+            tabIndex={-1}
             aria-label="Close photo"
             onClick={close}
             className="absolute inset-0 cursor-zoom-out border-0 bg-[rgba(26,20,15,.94)] p-0"
@@ -161,6 +195,7 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
           </button>
 
           <button
+            ref={closeBtnRef}
             type="button"
             aria-label="Close photo viewer"
             onClick={close}

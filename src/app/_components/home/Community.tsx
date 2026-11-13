@@ -47,7 +47,7 @@ export default function Community() {
           <p className={`${eyebrow} !text-xs text-cobalt lg:!text-sm`}>
             {COM.no} · {COM.kind} · {COM.tag}
           </p>
-          <h3 className="m-0 mt-2 font-display text-[34px] font-normal leading-none tracking-[-0.02em] lg:mt-2.5 lg:text-[44px]">
+          <h3 className="m-0 mt-2 font-display text-[34px] font-black leading-none tracking-[-0.02em] lg:mt-2.5 lg:text-[44px]">
             {COM.title}
           </h3>
           <p className="m-0 mt-2.5 text-base leading-[1.5] lg:mt-3 lg:text-lg">{COM.intro}</p>

@@ -9,7 +9,7 @@ export default function SiteFooter() {
           <p className="m-0 text-base font-semibold text-[#B3AFA8] lg:text-lg">Contact us</p>
           <a
             href={`mailto:${CONTACT.email}`}
-            className="break-words font-display text-[19px] no-underline sm:text-[22px] lg:text-[clamp(22px,4vw,44px)]"
+            className="break-words font-display text-[19px] font-black no-underline sm:text-[22px] lg:text-[clamp(22px,4vw,44px)]"
           >
             {CONTACT.email}
           </a>

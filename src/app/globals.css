@@ -11,7 +11,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-archivo-black), var(--font-archivo-vn), ui-sans-serif, system-ui, sans-serif;
+  /* Archivo 900 (not Black): Black lacks Vietnamese; see layout.tsx */
+  --font-display: var(--font-archivo-vn), ui-sans-serif, system-ui, sans-serif;
   --font-hand: var(--font-caveat), cursive;
 }
 
@@ -32,9 +33,9 @@ body {
   font-family: var(--font-archivo), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-/* Utility: force Archivo Black (single heavy weight) */
+/* Utility: Archivo Black — ASCII / Latin-only (no Vietnamese glyphs) */
 .font-archivo-black {
-  font-family: var(--font-archivo-black), var(--font-archivo-vn), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-archivo-black), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 400; /* Archivo Black ships as 400 (visually heavy) */
 }
 
@@ -125,7 +126,8 @@ body {
   .gl-press:focus-visible,
   .gl-plate:focus-visible,
   .gl-pill:focus-visible,
-  .gl-pick:focus-visible {
+  .gl-pick:focus-visible,
+  .gl-lb-nav:focus-visible {
     outline: 3px solid var(--color-tomato);
     outline-offset: 3px;
   }
@@ -142,7 +144,7 @@ body {
   }
 
   /* protein zoom */
-  .gl-zoom { transition: transform 0.55s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .gl-zoom { transition: transform 0.34s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
   /* fade when swapping a course photo */
   .gl-fade { animation: gl-fade 0.22s cubic-bezier(0.215, 0.61, 0.355, 1); }
@@ -271,3 +273,37 @@ body {
     .gl-zoom, .gl-hearts .hl, .gl-hearts .hr, .gl-lb-nav { transition: none !important; }
   }
 }
+
+/* chopsticks cursor: open by default, pinched over anything clickable */
+@media (hover: hover) and (pointer: fine) {
+  html { cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2264%22 viewBox=%220 0 32 32%22%3E%3Cpath d=%22M3.66 3.30 L25.73 29.93 L28.27 27.67 L4.34 2.70Z%22 fill=%22%231A1A1A%22 stroke=%22%23fff%22 stroke-width=%221.8%22 stroke-linejoin=%22round%22 paint-order=%22stroke%22/%3E%3Ccircle cx=%2227%22 cy=%2228.8%22 r=%221.70%22 fill=%22%231A1A1A%22 stroke=%22%23fff%22 stroke-width=%221.8%22 paint-order=%22stroke%22/%3E%3Cpath d=%22M8.93 1.44 L29.39 25.51 L31.41 23.69 L9.47 0.96Z%22 fill=%22%231A1A1A%22 stroke=%22%23fff%22 stroke-width=%221.8%22 stroke-linejoin=%22round%22 paint-order=%22stroke%22/%3E%3Ccircle cx=%2230.4%22 cy=%2224.6%22 r=%221.36%22 fill=%22%231A1A1A%22 stroke=%22%23fff%22 stroke-width=%221.8%22 paint-order=%22stroke%22/%3E%3Cpath d=%22M3.66 3.30 L25.73 29.93 L28.27 27.67 L4.34 2.70Z%22 fill=%22%231A1A1A%22/%3E%3Ccircle cx=%2227%22 cy=%2228.8%22 r=%221.70%22 fill=%22%231A1A1A%22/%3E%3Cpath d=%22M19.55 22.47 L22.20 25.67 L24.44 23.67 L21.57 20.68Z%22 fill=%22%23E0301E%22/%3E%3Cpath d=%22M8.93 1.44 L29.39 25.51 L31.41 23.69 L9.47 0.96Z%22 fill=%22%231A1A1A%22/%3E%3Ccircle cx=%2230.4%22 cy=%2224.6%22 r=%221.36%22 fill=%22%231A1A1A%22/%3E%3Cpath d=%22M23.66 18.77 L26.12 21.66 L27.90 20.05 L25.26 17.32Z%22 fill=%22%23E0301E%22/%3E%3C/svg%3E") 8 6, auto; }
+  a, button, summary, [role="button"], label[for], .gl-pbtn, .gl-pill {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2264%22 viewBox=%220 0 32 32%22%3E%3Cpath d=%22M3.66 3.30 L25.73 29.93 L28.27 27.67 L4.34 2.70Z%22 fill=%22%231A1A1A%22 stroke=%22%23fff%22 stroke-width=%221.8%22 stroke-linejoin=%22round%22 paint-order=%22stroke%22/%3E%3Ccircle cx=%2227%22 cy=%2228.8%22 r=%221.70%22 fill=%22%231A1A1A%22 stroke=%22%23fff%22 stroke-width=%221.8%22 paint-order=%22stroke%22/%3E%3Cpath d=%22M4.76 3.56 L29.28 27.60 L31.12 25.60 L5.24 3.04Z%22 fill=%22%231A1A1A%22 stroke=%22%23fff%22 stroke-width=%221.8%22 stroke-linejoin=%22round%22 paint-order=%22stroke%22/%3E%3Ccircle cx=%2230.2%22 cy=%2226.6%22 r=%221.36%22 fill=%22%231A1A1A%22 stroke=%22%23fff%22 stroke-width=%221.8%22 paint-order=%22stroke%22/%3E%3Cpath d=%22M3.66 3.30 L25.73 29.93 L28.27 27.67 L4.34 2.70Z%22 fill=%22%231A1A1A%22/%3E%3Ccircle cx=%2227%22 cy=%2228.8%22 r=%221.70%22 fill=%22%231A1A1A%22/%3E%3Cpath d=%22M19.55 22.47 L22.20 25.67 L24.44 23.67 L21.57 20.68Z%22 fill=%22%23E0301E%22/%3E%3Cpath d=%22M4.76 3.56 L29.28 27.60 L31.12 25.60 L5.24 3.04Z%22 fill=%22%231A1A1A%22/%3E%3Ccircle cx=%2230.2%22 cy=%2226.6%22 r=%221.36%22 fill=%22%231A1A1A%22/%3E%3Cpath d=%22M22.41 20.87 L25.35 23.75 L26.98 21.99 L23.88 19.28Z%22 fill=%22%23E0301E%22/%3E%3C/svg%3E") 8 6, pointer;
+  }
+  input, textarea, select, [contenteditable="true"] { cursor: auto; }
+}
+
+/* animated chopsticks cursor (see ChopsticksCursor.tsx); native cursor hidden while active */
+.gl-cc-wrap {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 64px;
+  height: 64px;
+  z-index: 2147483000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+  will-change: transform;
+}
+html.gl-cc .gl-cc-wrap { display: block; }
+.gl-cc-wrap[data-v="1"] { opacity: 1; }
+html.gl-cc, html.gl-cc * { cursor: none !important; }
+html.gl-cc input, html.gl-cc textarea, html.gl-cc select, html.gl-cc [contenteditable="true"] { cursor: auto !important; }
+.gl-cc-b {
+  transform: translate(30.2px, 26.6px) rotate(51.5deg) scale(0.946, 1);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.gl-cc-wrap[data-s="pinch"] .gl-cc-b { transform: translate(30.2px, 26.6px) rotate(42.8deg) scale(1, 1); }
+.gl-cc-wrap[data-s="press"] .gl-cc-b { transform: translate(30.2px, 26.6px) rotate(41.0deg) scale(1, 1); transition-duration: 0.12s; }

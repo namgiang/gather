@@ -67,7 +67,7 @@ export default function GoiCuon() {
           <p className={`${eyebrow} text-cobalt-deep`}>
             {GOI.no} · {GOI.kind} · {GOI.place}
           </p>
-          <h3 className="m-0 font-display text-[40px] font-normal leading-[.95] tracking-[-0.02em] lg:text-[clamp(40px,5vw,68px)]">
+          <h3 className="m-0 font-display text-[40px] font-black leading-[.95] tracking-[-0.02em] lg:text-[clamp(40px,5vw,68px)]">
             {GOI.title}
           </h3>
           <p className="m-0 text-[17px] leading-[1.5] lg:text-[19px]">{GOI.intro}</p>

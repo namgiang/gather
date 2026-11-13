@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Archivo_Black, Caveat } from "next/font/google";
 import "./globals.css";
+import ChopsticksCursor from "./_components/ChopsticksCursor";
 
 const archivoBlack = Archivo_Black({
   weight: "400",
@@ -9,11 +10,13 @@ const archivoBlack = Archivo_Black({
   display: "swap",
 });
 
-// Archivo Black has no Vietnamese letters (ỏ, ố, ...), so those fall back to a
-// thin font. This heavy Archivo cut is used just for them (see --font-display).
-const archivoVietnamese = Archivo({
+// Archivo Black has no Vietnamese (ỏ, ố, …). Display headings use Archivo 900
+// instead — same family, heavy enough, full Vietnamese coverage. (A Black→900
+// fallback stack fails: headings are weight 400 for Black, so 900 never matches
+// and accents fall through to a thin system face.)
+const archivoDisplay = Archivo({
   weight: "900",
-  subsets: ["vietnamese"],
+  subsets: ["latin", "latin-ext", "vietnamese"],
   variable: "--font-archivo-vn",
   display: "swap",
 });
@@ -44,9 +47,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${archivoBlack.variable} ${archivoVietnamese.variable} ${archivo.variable} ${caveat.variable} antialiased`}
+        className={`${archivoBlack.variable} ${archivoDisplay.variable} ${archivo.variable} ${caveat.variable} antialiased`}
       >
         {children}
+        <ChopsticksCursor />
       </body>
     </html>
   );

@@ -11,7 +11,7 @@ export default function GatheringsIndex() {
       className="mx-auto max-w-[1280px] border-t-2 border-ink pb-4 pt-6 lg:border-t-0 lg:px-6 lg:pb-6 lg:pt-4"
     >
       <div className="flex flex-col gap-0 lg:flex-row lg:items-end lg:justify-between lg:gap-6 lg:border-b-2 lg:border-ink lg:pb-5">
-        <h2 className="m-0 px-6 font-display text-[52px] font-normal leading-[.95] tracking-[-0.02em] lg:px-0 lg:text-[clamp(48px,7vw,96px)]">
+        <h2 className="m-0 px-6 font-display text-[52px] font-black leading-[.95] tracking-[-0.02em] text-balance lg:px-0 lg:text-[clamp(48px,7vw,96px)]">
           Past
           <br />
           gatherings
