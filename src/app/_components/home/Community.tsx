@@ -35,12 +35,12 @@ export default function Community() {
         <Sticker
           src="leaves/lotus-c.webp"
           m={{ right: 8, bottom: 6, w: 170, rot: 7 }}
-          d={{ left: "calc(50% - 125px)", top: 80, w: 250, rot: 4 }}
+          d={{ left: "calc(50% - 125px)", top: 48, w: 250, rot: 4 }}
         />
       </StickerLayer>
     <section
       id="community"
-      className="relative mx-auto max-w-[1100px] px-6 pb-[130px] pt-[96px] lg:pb-24 lg:pt-56"
+      className="relative mx-auto max-w-[1100px] px-6 pb-[130px] pt-[96px] lg:pb-24 lg:pt-44"
     >
       <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
         <div className="gl-checker-sky -rotate-[1.5deg] rounded-[20px] p-5 lg:min-w-0 lg:max-w-[460px] lg:flex-[1_1_360px] lg:-rotate-2 lg:rounded-[22px] lg:p-7">
