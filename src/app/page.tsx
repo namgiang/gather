@@ -13,7 +13,7 @@ import { Hearts } from "./_components/home/ui";
 export default function Home() {
   return (
     <LightboxProvider>
-      <div className="gl-root overflow-x-clip bg-cream text-ink">
+      <div className="gl-root bg-cream text-ink">
         <SiteHeader />
         <main id="main-content">
           <Hero />
