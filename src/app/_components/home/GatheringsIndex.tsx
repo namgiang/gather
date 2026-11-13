@@ -1,7 +1,7 @@
 const CHIPS = [
-  { href: "#tcm", label: "01 · TCM dinner", bg: "bg-sage" },
-  { href: "#goicuon", label: "02 · Gỏi cuốn", bg: "bg-peach" },
-  { href: "#community", label: "03 · Community", bg: "bg-lilac" },
+  { href: "#tcm", label: "01 · TCM dinner", bg: "bg-sky" },
+  { href: "#goicuon", label: "02 · Gỏi cuốn", bg: "bg-white" },
+  { href: "#community", label: "03 · Community", bg: "bg-pink-tint" },
 ];
 
 export default function GatheringsIndex() {

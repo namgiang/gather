@@ -2,11 +2,11 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { TCM_PHOTOS } from "../../_data/events";
-import { PhotoButton } from "./ui";
+import { PhotoButton, Sticker, StickerLayer } from "./ui";
 
-const LETTERS: { c: string; t?: string }[] = [
+const LETTERS: { c: string; t?: string; accent?: boolean }[] = [
   { c: "G", t: "rotate(-4deg)" },
-  { c: "A", t: "translateY(4px)" },
+  { c: "A", t: "translateY(4px)", accent: true },
   { c: "T", t: "rotate(3deg)" },
   { c: "H" },
   { c: "E", t: "rotate(-3deg) translateY(3px)" },
@@ -16,43 +16,43 @@ const LETTERS: { c: string; t?: string }[] = [
 export default function Hero() {
   const crew = TCM_PHOTOS[0];
   return (
+    <div className="gl-gingham relative isolate overflow-hidden lg:border-b-2 lg:border-ink">
+      <StickerLayer>
+        <Sticker
+          src="leaves/leaf-cut.webp"
+          m={{ left: -135, top: 35, w: 300, rot: -72 }}
+          d={{ left: -140, top: 97, w: 500, rot: 104, flip: true }}
+        />
+      </StickerLayer>
     <section
       id="top"
       className="relative mx-auto max-w-[1280px] px-6 pb-16 pt-[22px] lg:pb-24 lg:pt-8"
     >
       <h1
         aria-label="Gather"
-        className="gl-hop m-0 select-none whitespace-nowrap text-center font-display text-[70px] font-normal leading-[.9] tracking-[-0.035em] md:text-[clamp(96px,13vw,184px)] md:tracking-[-0.03em]"
+        className="gl-hop m-0 select-none whitespace-nowrap text-center font-display text-[70px] font-normal leading-[.9] tracking-[-0.035em] md:text-[clamp(96px,11vw,150px)] md:tracking-[-0.03em]"
       >
         {LETTERS.map((l) => (
-          <span key={l.c + (l.t ?? "")} aria-hidden="true" style={{ transform: l.t }}>
+          <span
+            key={l.c + (l.t ?? "")}
+            aria-hidden="true"
+            className={l.accent ? "text-tomato" : undefined}
+            style={{ transform: l.t }}
+          >
             {l.c}
           </span>
         ))}
       </h1>
 
       {/* desktop: promise + CTAs before the photo */}
-      <p className="mx-auto mt-7 hidden max-w-[640px] text-center text-[clamp(19px,2vw,23px)] font-medium leading-[1.45] lg:block">
-        Chosen-family dinners, big pots and extra chairs. We cook for supper clubs,
-        fairs and neighbourhoods across Amsterdam. Come as you are, bring who you love.
-      </p>
+      <Promise className="mt-10 hidden lg:block" />
       <div className="mt-[26px] hidden flex-wrap justify-center gap-4 lg:flex">
-        <a
-          href="#book"
-          className="gl-pill rounded-full border-2 border-ink bg-tomato px-6 py-[15px] text-[17px] font-bold text-white shadow-[4px_4px_0_#1A1A1A]"
-        >
-          Book us to cook
-        </a>
-        <a
-          href="#gatherings"
-          className="gl-pill rounded-full border-2 border-ink bg-white px-6 py-[15px] text-[17px] font-bold"
-        >
-          See past gatherings ↓
-        </a>
+        <PrimaryCta />
+        <SecondaryCta />
       </div>
 
       <div className="relative mx-auto mt-[60px] max-w-[1100px] lg:mt-14">
-        <div className="gl-checker-blue -rotate-[1.5deg] rounded-[22px] lg:-rotate-[1.2deg] lg:rounded-[28px]">
+        <div className="-rotate-[1.5deg] rounded-[22px] border-2 border-ink bg-white p-2.5 shadow-[6px_8px_0_#1A1A1A] lg:-rotate-[1.2deg] lg:rounded-[28px] lg:p-3.5 lg:shadow-[10px_12px_0_#1A1A1A]">
           <PhotoButton
             group="tcm"
             index={0}
@@ -82,8 +82,8 @@ export default function Hero() {
             <defs>
               <path id="gl-circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0" />
             </defs>
-            <circle cx="100" cy="100" r="98" fill="#D86A85" />
-            <text fontFamily="var(--font-archivo-black), sans-serif" fontSize="16.5" letterSpacing="2" fill="#FFF7ED">
+            <circle cx="100" cy="100" r="98" fill="#E0301E" />
+            <text fontFamily="var(--font-archivo-black), sans-serif" fontSize="16.5" letterSpacing="2" fill="#F6F1E7">
               <textPath href="#gl-circ">DINNERS ✶ CATERING ✶ CHOSEN FAMILY ✶</textPath>
             </text>
           </svg>
@@ -96,25 +96,54 @@ export default function Hero() {
         </div>
 
         {/* a sticky note that stays put */}
-        <div className="absolute -bottom-[34px] -left-2.5 w-[170px] -rotate-6 bg-lilac px-3.5 pb-3.5 pt-3 font-hand text-[22px] leading-[1.05] shadow-[0_8px_18px_rgba(60,40,20,.18)] lg:-bottom-10 lg:-left-3 lg:w-[230px] lg:px-5 lg:pb-[22px] lg:pt-[18px] lg:text-[28px] lg:shadow-[0_10px_24px_rgba(60,40,20,.18)]">
+        <div className="absolute -bottom-[34px] -left-2.5 w-[170px] -rotate-6 bg-white px-3.5 pb-3.5 pt-3 font-hand text-cobalt text-[22px] leading-[1.05] shadow-[0_8px_18px_rgba(60,40,20,.18)] lg:-bottom-10 lg:-left-3 lg:w-[230px] lg:px-5 lg:pb-[22px] lg:pt-[18px] lg:text-[28px] lg:shadow-[0_10px_24px_rgba(60,40,20,.18)]">
           3 gatherings so far,
           <br />
           everyone gets a seat ♡
         </div>
       </div>
 
-      {/* phone: promise + link after the photo */}
-      <p className="mt-[62px] text-center text-[19px] font-medium leading-[1.45] lg:hidden">
-        Chosen-family dinners, big pots and extra chairs. Come as you are, bring who you love.
-      </p>
-      <div className="mt-3 flex justify-center lg:hidden">
-        <a
-          href="#gatherings"
-          className="gl-press inline-block px-1.5 py-3 text-[17px] font-bold underline decoration-2 underline-offset-[5px]"
-        >
-          See what we&apos;ve cooked ↓
-        </a>
+      {/* phone: promise + CTAs after the photo */}
+      <Promise className="mt-[62px] lg:hidden" />
+      <div className="mt-6 flex flex-col items-center gap-3 lg:hidden">
+        <PrimaryCta />
+        <SecondaryCta />
       </div>
     </section>
+    </div>
+  );
+}
+
+function Promise({ className = "" }: { className?: string }) {
+  return (
+    <p
+      className={`relative mx-auto max-w-[740px] -rotate-[0.6deg] rounded-[20px] border-2 border-ink bg-cream px-5 py-[18px] text-center text-[17px] font-medium leading-[1.45] lg:rounded-[22px] lg:px-8 lg:py-[22px] lg:text-[clamp(19px,2vw,23px)] ${className}`}
+    >
+      A community food collective in Amsterdam. We cook everything from TCM dinners
+      and street food snacks to Iftar dinners, and bring people together over good
+      food and stories. Come as you are, bring who you love.
+    </p>
+  );
+}
+
+function PrimaryCta() {
+  return (
+    <a
+      href="#book"
+      className="gl-pill gl-press rounded-full border-2 border-ink bg-tomato px-6 py-[15px] text-[17px] font-bold text-white shadow-[4px_4px_0_#1A1A1A]"
+    >
+      Plan a dinner with us
+    </a>
+  );
+}
+
+function SecondaryCta() {
+  return (
+    <a
+      href="#gatherings"
+      className="gl-pill gl-press rounded-full border-2 border-ink bg-white px-6 py-[15px] text-[17px] font-bold"
+    >
+      See past gatherings ↓
+    </a>
   );
 }

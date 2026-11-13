@@ -9,6 +9,15 @@ const archivoBlack = Archivo_Black({
   display: "swap",
 });
 
+// Archivo Black has no Vietnamese letters (ỏ, ố, ...), so those fall back to a
+// thin font. This heavy Archivo cut is used just for them (see --font-display).
+const archivoVietnamese = Archivo({
+  weight: "900",
+  subsets: ["vietnamese"],
+  variable: "--font-archivo-vn",
+  display: "swap",
+});
+
 const archivo = Archivo({
   subsets: ["latin", "latin-ext", "vietnamese"],
   variable: "--font-archivo",
@@ -24,7 +33,7 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Gather",
   description:
-    "Chosen-family dinners, big pots and extra chairs. Gather cooks supper clubs, fairs and neighbourhood catering across Amsterdam.",
+    "A community food collective in Amsterdam. We cook TCM dinners, street food snacks and Iftar dinners, and bring people together over good food and stories.",
 };
 
 export default function RootLayout({
@@ -35,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${archivoBlack.variable} ${archivo.variable} ${caveat.variable} antialiased`}
+        className={`${archivoBlack.variable} ${archivoVietnamese.variable} ${archivo.variable} ${caveat.variable} antialiased`}
       >
         {children}
       </body>

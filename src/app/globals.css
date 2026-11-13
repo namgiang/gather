@@ -4,30 +4,26 @@
   --background: #ffffff;
   --foreground: #171717;
   --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
-  --btn: #CA4E26;
+  --btn: #E0301E;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-archivo-black), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo-black), var(--font-archivo-vn), ui-sans-serif, system-ui, sans-serif;
   --font-hand: var(--font-caveat), cursive;
 }
 
-/* Gather brand palette */
+/* Gather brand palette: candy-wrapper (cobalt, red, paper) */
 @theme {
-  --color-cream: #fff7ed;
+  --color-cream: #f6f1e7; /* paper */
   --color-ink: #1a1a1a;
-  --color-tomato: #ca4e26;
-  --color-rose: #d86a85;
-  --color-blush: #f7c9d6;
-  --color-periwinkle: #9cb2f0;
-  --color-lilac: #dccdf7;
-  --color-sage: #b9d59f;
-  --color-peach: #f7c6a8;
-  --color-butter: #ffe58f;
-  --color-indigo: #3f51b5;
+  --color-tomato: #e0301e; /* red */
+  --color-cobalt: #0f66b8;
+  --color-cobalt-deep: #0b4f91; /* small text on sky */
+  --color-sky: #bfd6ee; /* light cobalt tint */
+  --color-pink-tint: #fbd2cc; /* light red tint */
 }
 
 body {
@@ -38,14 +34,14 @@ body {
 
 /* Utility: force Archivo Black (single heavy weight) */
 .font-archivo-black {
-  font-family: var(--font-archivo-black), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-archivo-black), var(--font-archivo-vn), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 400; /* Archivo Black ships as 400 (visually heavy) */
 }
 
 /* Single-layer checker border utility */
 .checker-border {
   position: relative;
-  background: #FFF7ED;
+  background: #F6F1E7;
   border-radius: 10px;
 }
 .checker-border::before {
@@ -170,31 +166,46 @@ body {
   .gl-spin { animation: gl-spin 32s linear infinite; }
   @keyframes gl-spin { to { transform: rotate(360deg); } }
 
-  /* checker frames */
-  .gl-checker-blue {
-    border: 12px solid transparent;
-    background:
-      linear-gradient(var(--color-cream), var(--color-cream)) padding-box,
-      conic-gradient(#9cb2f0 25%, #f7c9d6 0 50%, #9cb2f0 0 75%, #f7c9d6 0) 0 0 / 18px 18px round border-box;
+  /* blue gingham: the tablecloth behind the hero */
+  .gl-gingham {
+    background-color: var(--color-cream);
+    background-image:
+      linear-gradient(90deg, rgba(15, 102, 184, 0.48) 50%, transparent 50%),
+      linear-gradient(rgba(15, 102, 184, 0.48) 50%, transparent 50%);
+    background-size: 40px 40px;
   }
-  .gl-checker-sage {
+  @media (min-width: 1024px) {
+    .gl-gingham { background-size: 56px 56px; }
+  }
+
+  /* die-cut sticker look for the leaf and lotus cut-outs */
+  .gl-sticker {
+    pointer-events: none;
+    filter: drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff)
+      drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)
+      drop-shadow(6px 8px 0 rgba(8, 40, 80, 0.3));
+  }
+  @media (min-width: 1024px) {
+    .gl-sticker {
+      filter: drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff)
+        drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)
+        drop-shadow(9px 11px 0 rgba(8, 40, 80, 0.3));
+    }
+  }
+
+  /* checker frame (community card) */
+  .gl-checker-sky {
     border: 14px solid transparent;
     background:
       linear-gradient(#fff, #fff) padding-box,
-      conic-gradient(#b9d59f 25%, #fff7ed 0 50%, #b9d59f 0 75%, #fff7ed 0) 0 0 / 18px 18px round border-box;
+      conic-gradient(#bfd6ee 25%, #f6f1e7 0 50%, #bfd6ee 0 75%, #f6f1e7 0) 0 0 / 18px 18px round border-box;
   }
   @media (min-width: 1024px) {
-    .gl-checker-blue {
-      border-width: 18px;
-      background:
-        linear-gradient(var(--color-cream), var(--color-cream)) padding-box,
-        conic-gradient(#9cb2f0 25%, #f7c9d6 0 50%, #9cb2f0 0 75%, #f7c9d6 0) 0 0 / 24px 24px round border-box;
-    }
-    .gl-checker-sage {
+    .gl-checker-sky {
       border-width: 18px;
       background:
         linear-gradient(#fff, #fff) padding-box,
-        conic-gradient(#b9d59f 25%, #fff7ed 0 50%, #b9d59f 0 75%, #fff7ed 0) 0 0 / 20px 20px round border-box;
+        conic-gradient(#bfd6ee 25%, #f6f1e7 0 50%, #bfd6ee 0 75%, #f6f1e7 0) 0 0 / 20px 20px round border-box;
     }
   }
 

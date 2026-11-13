@@ -17,7 +17,7 @@ export default function SiteFooter() {
             href={CONTACT.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg font-bold text-sage lg:text-xl"
+            className="text-lg font-bold text-sky lg:text-xl"
           >
             Instagram {CONTACT.handle}
           </a>

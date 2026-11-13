@@ -1,20 +1,20 @@
-/* eslint-disable @next/next/no-img-element */
-import { Hearts } from "./ui";
+import { Hearts, Sticker, StickerLayer } from "./ui";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden border-t-2 border-ink bg-lilac"
+      className="relative isolate overflow-hidden border-t-2 border-ink bg-cobalt text-cream"
     >
-      <img
-        src="flower.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[70px] -right-[60px] size-[230px] object-cover opacity-[.85] mix-blend-multiply lg:-bottom-[120px] lg:-right-[70px] lg:size-[560px] lg:-rotate-12 lg:opacity-90"
-      />
-      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[150px] pt-16 lg:gap-7 lg:py-28">
-        <Hearts className="hidden lg:block" />
+      <StickerLayer>
+        <Sticker
+          src="leaves/leaf-bunch.webp"
+          m={{ right: -6, bottom: -34, w: 215, rot: 10 }}
+          d={{ right: 0, top: 21, w: 420, rot: 12 }}
+        />
+      </StickerLayer>
+      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[340px] pt-16 lg:gap-7 lg:pb-28 lg:pt-28">
+        <Hearts left="#E0301E" right="#F6F1E7" className="hidden lg:block" />
         <p className="m-0 text-[13px] font-bold uppercase tracking-[.1em] lg:text-sm">
           About Gather
         </p>

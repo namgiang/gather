@@ -1,7 +1,7 @@
 import { CONTACT, QUOTES } from "../../_data/events";
 import { Hearts } from "./ui";
 
-const NOTE_COLORS = ["bg-butter", "bg-lilac"];
+const NOTE_COLORS = ["bg-white", "bg-sky"];
 
 export default function Book() {
   const hasQuotes = QUOTES.length > 0;
@@ -13,16 +13,16 @@ export default function Book() {
             Want Gather at your table?
           </h2>
           <p className="m-0 max-w-[520px] text-[17px] leading-[1.5] lg:text-xl">
-            A supper club, catering for your fair or office, a pot of curry for your
-            street. Tell us what you&apos;re planning
-            <span className="hidden lg:inline"> and we&apos;ll cook something people talk about</span>.
+            A curated dinner, catering for your event or office, a community event?
+            Tell us what you&apos;re planning
+            <span className="hidden lg:inline"> and we&apos;ll cook something you won&apos;t forget</span>.
           </p>
           <div className="mt-[22px] flex flex-col gap-4 lg:mt-1 lg:flex-row lg:flex-wrap">
             <a
               href={`mailto:${CONTACT.email}?subject=Cooking%20for%20our%20event`}
               className="gl-pill gl-press rounded-full border-2 border-ink bg-tomato px-5 py-[15px] text-center text-[17px] font-bold text-white shadow-[4px_4px_0_#1A1A1A] lg:px-6"
             >
-              Book us to cook →
+              Plan a dinner with us →
             </a>
             <a
               href={CONTACT.instagram}
@@ -60,8 +60,8 @@ export default function Book() {
             aria-hidden="true"
             className="hidden min-w-0 flex-[1_1_340px] items-center justify-center lg:flex"
           >
-            <div className="flex size-[280px] rotate-[8deg] items-center justify-center rounded-full border-2 border-ink bg-blush shadow-[6px_6px_0_#1A1A1A]">
-              <Hearts left="#FFF7ED" right="#9CB2F0" width={180} />
+            <div className="flex size-[280px] rotate-[8deg] items-center justify-center rounded-full border-2 border-ink bg-sky shadow-[6px_6px_0_#1A1A1A]">
+              <Hearts left="#F6F1E7" right="#0F66B8" width={180} />
             </div>
           </div>
         )}

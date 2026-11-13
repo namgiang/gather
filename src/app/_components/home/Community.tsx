@@ -1,15 +1,15 @@
 "use client";
 
 import { COM, COM_PHOTOS } from "../../_data/events";
-import { HeartsDivider, Polaroid, eyebrow } from "./ui";
+import { HeartsDivider, Polaroid, Sticker, StickerLayer, eyebrow } from "./ui";
 
 const icons = [
-  <svg key="curry" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#CA4E26" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg key="curry" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E0301E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M4 11h16v2a8 8 0 0 1-16 0z" />
     <path d="M9 7c0-1 1-1 1-2s-1-1-1-2" />
     <path d="M14 7c0-1 1-1 1-2s-1-1-1-2" />
   </svg>,
-  <svg key="salad" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3F7A2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg key="salad" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0F66B8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M3 12h18a9 9 0 0 1-18 0z" />
     <path d="M12 12c0-4 3-6 6-6-1 3-3 5-6 6z" />
     <path d="M10 12c-1-3-3-4-5-4 0 2 2 4 5 4z" />
@@ -26,19 +26,32 @@ const icons = [
 export default function Community() {
   const P = COM_PHOTOS;
   return (
+    <div className="relative isolate overflow-hidden">
+      <StickerLayer>
+        <Sticker
+          src="leaves/lotus-b.webp"
+          m={{ left: -3, top: 18, w: 170, rot: -5 }}
+          d={{ left: "calc(50% - 565px)", top: 30, w: 350, rot: -5 }}
+        />
+        <Sticker
+          src="leaves/lotus-c.webp"
+          m={{ right: 8, bottom: 6, w: 190, rot: 7 }}
+          d={{ right: "calc(50% - 665px)", top: 10, w: 300, rot: 8 }}
+        />
+      </StickerLayer>
     <section
       id="community"
-      className="mx-auto max-w-[1100px] px-6 pb-14 pt-[52px] lg:py-24"
+      className="relative mx-auto max-w-[1100px] px-6 pb-[130px] pt-[52px] lg:py-24"
     >
       <HeartsDivider
-        left="#DCCDF7"
-        right="#F7C6A8"
+        left="#BFD6EE"
+        right="#E0301E"
         className="mb-[26px] !max-w-none !px-0 lg:-mt-10 lg:mb-12"
       />
 
       <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
-        <div className="gl-checker-sage -rotate-[1.5deg] rounded-[20px] p-5 lg:min-w-0 lg:max-w-[460px] lg:flex-[1_1_360px] lg:-rotate-2 lg:rounded-[22px] lg:p-7">
-          <p className={`${eyebrow} !text-xs text-indigo lg:!text-sm`}>
+        <div className="gl-checker-sky -rotate-[1.5deg] rounded-[20px] p-5 lg:min-w-0 lg:max-w-[460px] lg:flex-[1_1_360px] lg:-rotate-2 lg:rounded-[22px] lg:p-7">
+          <p className={`${eyebrow} !text-xs text-cobalt lg:!text-sm`}>
             {COM.no} · {COM.kind} · {COM.tag}
           </p>
           <h3 className="m-0 mt-2 font-display text-[34px] font-normal leading-none tracking-[-0.02em] lg:mt-2.5 lg:text-[44px]">
@@ -80,5 +93,6 @@ export default function Community() {
         </div>
       </div>
     </section>
+    </div>
   );
 }

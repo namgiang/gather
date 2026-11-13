@@ -87,8 +87,8 @@ const HEART =
 
 /** Two hearts that lean in toward each other (hover on desktop, scroll on touch). */
 export function Hearts({
-  left = "#F7C9D6",
-  right = "#9CB2F0",
+  left = "#E0301E",
+  right = "#0F66B8",
   className = "",
   width = 64,
 }: {
@@ -177,3 +177,79 @@ export function ExpandBadge({ className = "" }: { className?: string }) {
 
 export const eyebrow =
   "m-0 text-[13px] font-bold uppercase tracking-[.1em] lg:text-sm";
+
+export type Place = {
+  left?: number | string;
+  right?: number | string;
+  top?: number;
+  bottom?: number;
+  /** width in px */
+  w: number;
+  /** rotation in degrees */
+  rot?: number;
+  /** mirror horizontally */
+  flip?: boolean;
+};
+
+const styleFor = (p: Place): CSSProperties => ({
+  position: "absolute",
+  left: p.left,
+  right: p.right,
+  top: p.top,
+  bottom: p.bottom,
+  width: p.w,
+  height: "auto",
+  transform: `${p.flip ? "scaleX(-1) " : ""}rotate(${p.rot ?? 0}deg)`,
+});
+
+/**
+ * A decorative die-cut sticker (banana leaf, lotus). Give it a phone placement
+ * (`m`) and a desktop one (`d`). Put it inside a `relative isolate` parent: it
+ * sits behind the content (-z-10) and is hidden from assistive tech.
+ */
+export function Sticker({
+  src,
+  m,
+  d,
+}: {
+  src: string;
+  m: Place;
+  d?: Place;
+}) {
+  return (
+    <>
+      <img
+        src={src}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        className={`gl-sticker max-w-none ${d ? "lg:hidden" : ""}`}
+        style={styleFor(m)}
+      />
+      {d && (
+        <img
+          src={src}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          className="gl-sticker hidden max-w-none lg:block"
+          style={styleFor(d)}
+        />
+      )}
+    </>
+  );
+}
+
+/** Clips decorative stickers to their section so they never cause scrolling. */
+export function StickerLayer({ children }: { children: ReactNode }) {
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+    >
+      {children}
+    </div>
+  );
+}

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * Sticky header that slides away while you scroll down and comes back the moment
- * you scroll up (or focus something inside it), so "Book us" is never far away.
+ * you scroll up (or focus something inside it), so "Say Hi" is never far away.
  */
 export default function SiteHeader() {
   const [hidden, setHidden] = useState(false);
@@ -71,7 +71,7 @@ export default function SiteHeader() {
             href="#book"
             className="gl-pill gl-press rounded-full border-2 border-ink bg-tomato px-[18px] py-[11px] text-[15px] font-bold text-white md:py-2.5"
           >
-            Book us
+            Say Hi
           </a>
         </nav>
       </div>

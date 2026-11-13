@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { GOI, GOI_PHOTOS, PROTEINS } from "../../_data/events";
 import { useLightbox } from "./Lightbox";
-import { ExpandBadge, PhotoButton, eyebrow } from "./ui";
+import { ExpandBadge, PhotoButton, Sticker, StickerLayer, eyebrow } from "./ui";
 
 const thumb =
   "block w-full rounded-[14px] border-2 border-ink object-cover box-border lg:rounded-2xl";
@@ -44,12 +44,24 @@ export default function GoiCuon() {
   return (
     <section
       id="goicuon"
-      className="border-y-2 border-ink bg-peach"
+      className="relative isolate overflow-hidden border-y-2 border-ink bg-sky pb-[110px] lg:pb-0"
     >
-      <div className="mx-auto flex max-w-[1280px] flex-col gap-3.5 px-6 pb-12 pt-11 lg:flex-row lg:flex-wrap lg:items-center lg:gap-12 lg:py-24">
+      <StickerLayer>
+        <Sticker
+          src="leaves/leaf-torn.webp"
+          m={{ right: -135, top: -100, w: 210, rot: -125 }}
+          d={{ right: -195, top: -82, w: 470, rot: -125 }}
+        />
+        <Sticker
+          src="leaves/leaf-cut.webp"
+          m={{ left: -110, bottom: -70, w: 260, rot: 62, flip: true }}
+          d={{ left: -165, bottom: -255, w: 470, rot: 70, flip: true }}
+        />
+      </StickerLayer>
+      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-3.5 px-6 pb-12 pt-11 lg:flex-row lg:flex-wrap lg:items-center lg:gap-12 lg:py-24">
         {/* text + picker */}
         <div className="flex min-w-0 flex-col gap-3.5 lg:flex-1 lg:basis-[380px] lg:gap-[18px]">
-          <p className={`${eyebrow} text-[#8A2E12]`}>
+          <p className={`${eyebrow} text-cobalt-deep`}>
             {GOI.no} · {GOI.kind} · {GOI.place}
           </p>
           <h3 className="m-0 font-display text-[40px] font-normal leading-[.95] tracking-[-0.02em] lg:text-[clamp(40px,5vw,68px)]">

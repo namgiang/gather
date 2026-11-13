@@ -37,7 +37,7 @@ export default function TcmDinner() {
       <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:gap-14">
         {/* text + picker */}
         <div className="flex min-w-0 flex-col gap-3.5 px-6 lg:flex-1 lg:basis-[380px] lg:gap-5 lg:px-0">
-          <p className={`${eyebrow} text-indigo`}>
+          <p className={`${eyebrow} text-cobalt`}>
             {TCM.no} · {TCM.kind} · {TCM.date}
           </p>
           <h3 className="m-0 font-display text-[38px] font-normal leading-[.98] tracking-[-0.02em] lg:text-[clamp(44px,5.4vw,76px)] lg:leading-[.95]">
@@ -92,7 +92,7 @@ export default function TcmDinner() {
                 aria-hidden={i !== sel}
                 className={`[grid-area:1/1] ${i === sel ? "" : "invisible"}`}
               >
-                <p className="m-0 text-xs font-bold uppercase tracking-[.1em] text-indigo lg:text-[13px]">
+                <p className="m-0 text-xs font-bold uppercase tracking-[.1em] text-cobalt lg:text-[13px]">
                   {c.n} · {c.stage}
                 </p>
                 <p className="m-0 mt-1.5 font-display text-[22px] leading-[1.15] lg:text-[28px] lg:leading-[1.1]">
@@ -104,7 +104,7 @@ export default function TcmDinner() {
           </div>
 
           <div className="mt-1.5 flex items-center gap-3 lg:mt-1 lg:gap-3.5">
-            <span className="inline-block -rotate-8 rounded-[10px] border-[3px] border-rose px-3 py-[5px] font-display text-lg text-[#C2456A] lg:px-3.5 lg:py-1.5 lg:text-[22px]">
+            <span className="inline-block -rotate-8 rounded-[10px] border-[3px] border-tomato px-3 py-[5px] font-display text-lg text-tomato lg:px-3.5 lg:py-1.5 lg:text-[22px]">
               SOLD OUT
             </span>
             <span className="font-hand text-[22px] lg:text-2xl">{TCM.guests}</span>
