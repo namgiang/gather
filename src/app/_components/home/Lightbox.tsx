@@ -67,8 +67,9 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
     const html = document.documentElement;
     const previous = html.style.overflow;
     html.style.overflow = "hidden";
-    // focusVisible so the tomato ring shows on open, not only after Tab
-    closeBtnRef.current?.focus({ focusVisible: true });
+    // focusVisible so the tomato ring shows on open, not only after Tab.
+    // Not in older DOM FocusOptions typings; still supported at runtime.
+    closeBtnRef.current?.focus({ focusVisible: true } as FocusOptions);
     return () => {
       html.style.overflow = previous;
     };
