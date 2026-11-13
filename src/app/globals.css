@@ -244,24 +244,25 @@ body {
         animation-timeline: view();
         animation-range: entry 0% cover 35%;
       }
-      .gl-hearts .hl {
-        animation: gl-leanl linear both;
-        animation-timeline: view();
-        animation-range: cover 20% cover 50%;
-      }
-      .gl-hearts .hr {
-        animation: gl-leanr linear both;
-        animation-timeline: view();
-        animation-range: cover 20% cover 50%;
-      }
+    }
+    /* hearts close in as you scroll past them, on every device */
+    .gl-hearts .hl {
+      animation: gl-leanl linear both;
+      animation-timeline: view();
+      animation-range: cover 20% cover 55%;
+    }
+    .gl-hearts .hr {
+      animation: gl-leanr linear both;
+      animation-timeline: view();
+      animation-range: cover 20% cover 55%;
     }
   }
   @keyframes gl-settle {
     from { rotate: -7deg; translate: 0 32px; opacity: 0.4; }
     to { rotate: 0deg; translate: 0 0; opacity: 1; }
   }
-  @keyframes gl-leanl { from { transform: none; } to { transform: translateX(5px) rotate(8deg); } }
-  @keyframes gl-leanr { from { transform: none; } to { transform: translateX(-5px) rotate(-8deg); } }
+  @keyframes gl-leanl { from { transform: none; } to { transform: translateX(7px) rotate(10deg); } }
+  @keyframes gl-leanr { from { transform: none; } to { transform: translateX(-7px) rotate(-10deg); } }
 
   @media (prefers-reduced-motion: reduce) {
     .gl-spin, .gl-lb-in, .gl-lb-next, .gl-lb-prev, .gl-fade,

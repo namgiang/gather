@@ -144,10 +144,8 @@ export function HeartsDivider({
       aria-hidden="true"
       className={`gl-hearts mx-auto flex max-w-[1280px] items-center justify-center gap-3.5 px-6 lg:gap-5 ${className}`}
     >
-      <span className="hidden flex-1 border-t-2 border-dashed border-ink lg:block" />
       <Hearts left={left} right={right} width={56} className="lg:hidden" />
       <Hearts left={left} right={right} width={64} className="hidden lg:block" />
-      <span className="hidden flex-1 border-t-2 border-dashed border-ink lg:block" />
     </div>
   );
 }
@@ -181,8 +179,8 @@ export const eyebrow =
 export type Place = {
   left?: number | string;
   right?: number | string;
-  top?: number;
-  bottom?: number;
+  top?: number | string;
+  bottom?: number | string;
   /** width in px */
   w: number;
   /** rotation in degrees */
@@ -224,7 +222,7 @@ export function Sticker({
         aria-hidden="true"
         loading="lazy"
         decoding="async"
-        className={`gl-sticker max-w-none ${d ? "lg:hidden" : ""}`}
+        className="gl-sticker max-w-none lg:hidden"
         style={styleFor(m)}
       />
       {d && (
@@ -247,7 +245,7 @@ export function StickerLayer({ children }: { children: ReactNode }) {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      className="pointer-events-none absolute inset-0 -z-10 overflow-clip"
     >
       {children}
     </div>

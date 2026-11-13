@@ -58,7 +58,7 @@ export default function Book() {
         ) : (
           <div
             aria-hidden="true"
-            className="hidden min-w-0 flex-[1_1_340px] items-center justify-center lg:flex"
+            className="hidden min-w-0 flex-[1_1_340px] items-center justify-end lg:flex"
           >
             <div className="flex size-[280px] rotate-[8deg] items-center justify-center rounded-full border-2 border-ink bg-sky shadow-[6px_6px_0_#1A1A1A]">
               <Hearts left="#F6F1E7" right="#0F66B8" width={180} />

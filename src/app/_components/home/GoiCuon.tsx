@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { GOI, GOI_PHOTOS, PROTEINS } from "../../_data/events";
 import { useLightbox } from "./Lightbox";
-import { ExpandBadge, PhotoButton, Sticker, StickerLayer, eyebrow } from "./ui";
+import { ExpandBadge, Hearts, PhotoButton, Sticker, StickerLayer, eyebrow } from "./ui";
 
 const thumb =
   "block w-full rounded-[14px] border-2 border-ink object-cover box-border lg:rounded-2xl";
@@ -44,13 +44,13 @@ export default function GoiCuon() {
   return (
     <section
       id="goicuon"
-      className="relative isolate overflow-hidden border-y-2 border-ink bg-sky pb-[110px] lg:pb-0"
+      className="relative isolate overflow-clip border-y-2 border-ink bg-sky pb-[110px] lg:pb-14"
     >
       <StickerLayer>
         <Sticker
           src="leaves/leaf-torn.webp"
           m={{ right: -135, top: -100, w: 210, rot: -125 }}
-          d={{ right: -195, top: -82, w: 470, rot: -125 }}
+          d={{ right: -110, top: -70, w: 470, rot: -125 }}
         />
         <Sticker
           src="leaves/leaf-cut.webp"
@@ -58,6 +58,9 @@ export default function GoiCuon() {
           d={{ left: -165, bottom: -255, w: 470, rot: 70, flip: true }}
         />
       </StickerLayer>
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-8 flex justify-center lg:bottom-9">
+        <Hearts left="#F6F1E7" right="#E0301E" width={64} />
+      </div>
       <div className="relative mx-auto flex max-w-[1280px] flex-col gap-3.5 px-6 pb-12 pt-11 lg:flex-row lg:flex-wrap lg:items-center lg:gap-12 lg:py-24">
         {/* text + picker */}
         <div className="flex min-w-0 flex-col gap-3.5 lg:flex-1 lg:basis-[380px] lg:gap-[18px]">

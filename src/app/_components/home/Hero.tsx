@@ -16,11 +16,11 @@ const LETTERS: { c: string; t?: string; accent?: boolean }[] = [
 export default function Hero() {
   const crew = TCM_PHOTOS[0];
   return (
-    <div className="gl-gingham relative isolate overflow-hidden lg:border-b-2 lg:border-ink">
+    <div className="gl-gingham relative isolate overflow-clip lg:border-b-2 lg:border-ink">
       <StickerLayer>
         <Sticker
           src="leaves/leaf-cut.webp"
-          m={{ left: -135, top: 35, w: 300, rot: -72 }}
+          m={{ left: -140, bottom: 30, w: 290, rot: -72 }}
           d={{ left: -140, top: 97, w: 500, rot: 104, flip: true }}
         />
       </StickerLayer>

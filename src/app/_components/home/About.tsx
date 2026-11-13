@@ -4,13 +4,13 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative isolate overflow-hidden border-t-2 border-ink bg-cobalt text-cream"
+      className="relative isolate overflow-clip border-t-2 border-ink bg-cobalt text-cream"
     >
       <StickerLayer>
         <Sticker
           src="leaves/leaf-bunch.webp"
           m={{ right: -6, bottom: -34, w: 215, rot: 10 }}
-          d={{ right: 0, top: 21, w: 420, rot: 12 }}
+          d={{ right: "calc(50% - 610px)", top: "calc(50% - 309px)", w: 420, rot: 12 }}
         />
       </StickerLayer>
       <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[340px] pt-16 lg:gap-7 lg:pb-28 lg:pt-28">

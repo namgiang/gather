@@ -1,7 +1,7 @@
 "use client";
 
 import { COM, COM_PHOTOS } from "../../_data/events";
-import { HeartsDivider, Polaroid, Sticker, StickerLayer, eyebrow } from "./ui";
+import { Polaroid, Sticker, StickerLayer, eyebrow } from "./ui";
 
 const icons = [
   <svg key="curry" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E0301E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -26,29 +26,22 @@ const icons = [
 export default function Community() {
   const P = COM_PHOTOS;
   return (
-    <div className="relative isolate overflow-hidden">
+    <div className="relative isolate overflow-clip">
       <StickerLayer>
         <Sticker
-          src="leaves/lotus-b.webp"
-          m={{ left: -3, top: 18, w: 170, rot: -5 }}
-          d={{ left: "calc(50% - 565px)", top: 30, w: 350, rot: -5 }}
+          src="leaves/lotus-c.webp"
+          m={{ left: -10, top: 22, w: 150, rot: -8, flip: true }}
         />
         <Sticker
           src="leaves/lotus-c.webp"
-          m={{ right: 8, bottom: 6, w: 190, rot: 7 }}
-          d={{ right: "calc(50% - 665px)", top: 10, w: 300, rot: 8 }}
+          m={{ right: 8, bottom: 6, w: 170, rot: 7 }}
+          d={{ left: "calc(50% - 125px)", top: 80, w: 250, rot: 4 }}
         />
       </StickerLayer>
     <section
       id="community"
-      className="relative mx-auto max-w-[1100px] px-6 pb-[130px] pt-[52px] lg:py-24"
+      className="relative mx-auto max-w-[1100px] px-6 pb-[130px] pt-[96px] lg:pb-24 lg:pt-56"
     >
-      <HeartsDivider
-        left="#BFD6EE"
-        right="#E0301E"
-        className="mb-[26px] !max-w-none !px-0 lg:-mt-10 lg:mb-12"
-      />
-
       <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
         <div className="gl-checker-sky -rotate-[1.5deg] rounded-[20px] p-5 lg:min-w-0 lg:max-w-[460px] lg:flex-[1_1_360px] lg:-rotate-2 lg:rounded-[22px] lg:p-7">
           <p className={`${eyebrow} !text-xs text-cobalt lg:!text-sm`}>
