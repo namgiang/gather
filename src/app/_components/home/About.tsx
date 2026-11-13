@@ -1,4 +1,4 @@
-import { Hearts, Sticker, StickerLayer } from "./ui";
+import { Hearts } from "./ui";
 
 export default function About() {
   return (
@@ -6,14 +6,21 @@ export default function About() {
       id="about"
       className="relative isolate overflow-clip border-t-2 border-ink bg-cobalt text-cream"
     >
-      <StickerLayer>
-        <Sticker
-          src="leaves/leaf-bunch.webp"
-          m={{ right: -6, bottom: -34, w: 215, rot: 10 }}
-          d={{ right: "calc(50% - 610px)", top: "calc(50% - 309px)", w: 420, rot: 12 }}
+      {/* Swap the photo by replacing public/cooking/about-polaroid.jpg (any size; it is cropped square). */}
+      <figure className="absolute bottom-10 right-6 m-0 w-[210px] rotate-3 bg-white p-2.5 pb-9 shadow-[0_10px_24px_rgba(8,40,80,.35)] lg:bottom-auto lg:right-[calc(50%-540px)] lg:top-1/2 lg:w-[340px] lg:-translate-y-1/2 lg:p-3.5 lg:pb-14">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="cooking/about-polaroid.jpg"
+          alt="The Gather crew in the kitchen"
+          loading="lazy"
+          decoding="async"
+          className="block aspect-square w-full object-cover"
         />
-      </StickerLayer>
-      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[340px] pt-16 lg:gap-7 lg:pb-28 lg:pt-28">
+        <figcaption className="mt-2 text-center font-hand text-[20px] leading-none text-ink lg:mt-3 lg:text-[28px]">
+          the crew, mid-service
+        </figcaption>
+      </figure>
+      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[330px] pt-16 lg:gap-7 lg:pb-28 lg:pt-28">
         <Hearts left="#E0301E" right="#F6F1E7" className="hidden lg:block" />
         <p className="m-0 text-[13px] font-bold uppercase tracking-[.1em] lg:text-sm">
           About Gather

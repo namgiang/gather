@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { TCM, TCM_COURSES, TCM_PHOTOS } from "../../_data/events";
 import { useLightbox } from "./Lightbox";
-import { ExpandBadge, Hearts, Polaroid, eyebrow } from "./ui";
+import { ExpandBadge, Polaroid, eyebrow } from "./ui";
 
 export default function TcmDinner() {
   const [sel, setSel] = useState(0);
@@ -113,41 +113,30 @@ export default function TcmDinner() {
 
         {/* desktop collage */}
         <div className="relative hidden min-h-[760px] min-w-0 flex-[1.3_1_520px] lg:block">
-          <div className="gl-hearts absolute -right-[22px] -top-[30px] z-[6] grid size-24 rotate-[10deg] place-items-center rounded-full border-2 border-ink bg-cream shadow-[4px_4px_0_#1A1A1A]">
-            <Hearts width={64} />
-          </div>
           {mainPhoto("h-[440px] rounded-[22px]", false)}
           <Polaroid
             group="tcm"
             index={6}
             photo={TCM_PHOTOS[6]}
-            rotate={-6}
-            className="absolute -left-[26px] top-[400px] w-[210px]"
+            rotate={-5}
+            className="absolute -left-[3%] top-[410px] w-[min(220px,36%)]"
             imgClassName="h-[200px]"
-          />
-          <Polaroid
-            group="tcm"
-            index={7}
-            photo={TCM_PHOTOS[7]}
-            rotate={3}
-            className="absolute left-[190px] top-[470px] w-[230px]"
-            imgClassName="h-[180px]"
           />
           <Polaroid
             group="tcm"
             index={8}
             photo={TCM_PHOTOS[8]}
-            rotate={-3}
-            className="absolute right-[120px] top-[420px] w-[190px]"
+            rotate={3}
+            className="absolute left-[35%] top-[470px] w-[min(200px,31%)]"
             imgClassName="h-[210px]"
           />
           <Polaroid
             group="tcm"
             index={9}
             photo={TCM_PHOTOS[9]}
-            rotate={7}
-            className="absolute -right-2.5 top-[500px] w-[170px]"
-            imgClassName="h-[170px]"
+            rotate={-3}
+            className="absolute -right-[1%] top-[420px] w-[min(190px,29%)]"
+            imgClassName="h-[190px]"
           />
         </div>
       </div>
