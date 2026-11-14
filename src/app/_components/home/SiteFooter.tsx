@@ -5,7 +5,7 @@ export default function SiteFooter() {
   return (
     <footer
       id="contact"
-      className="bg-ink text-cream pb-[env(safe-area-inset-bottom,0px)] shadow-[0_100vh_0_100vh_#1a1a1a]"
+      className="bg-ink text-cream pb-[env(safe-area-inset-bottom,0px)]"
     >
       <div className="mx-auto flex max-w-[1280px] flex-col gap-2 px-6 py-8 lg:flex-row lg:flex-wrap lg:items-end lg:justify-between lg:gap-10 lg:py-[88px]">
         <div className="flex flex-col gap-1.5 lg:gap-3.5">

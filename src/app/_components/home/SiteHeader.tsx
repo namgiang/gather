@@ -94,7 +94,7 @@ export default function SiteHeader() {
             atTop ? "border-ink" : "border-transparent"
           }`}
         >
-          <img src="logo.svg" alt="Gather" className="h-[30px] w-auto md:h-8" />
+          <img src="logo-chip.png" alt="Gather" className="h-[30px] w-auto md:h-8" />
         </a>
         <nav aria-label="Primary" className="flex items-center gap-2">
           <a
