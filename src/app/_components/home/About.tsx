@@ -20,7 +20,7 @@ export default function About() {
           the crew, mid-service
         </figcaption>
       </figure>
-      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[250px] pt-12 lg:gap-7 lg:pb-28 lg:pt-28">
+      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[300px] pt-12 lg:gap-7 lg:pb-28 lg:pt-28">
         <Hearts left="#E0301E" right="#F6F1E7" className="hidden lg:block" />
         <p className="m-0 text-[13px] font-bold uppercase tracking-[.1em] lg:text-sm">
           About Gather
