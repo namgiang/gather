@@ -28,16 +28,51 @@
   --color-pink-tint: #fbd2cc; /* light red tint */
 }
 
-/* Same cream on html + body so rubber-band bounce matches the page (not white/ink) */
 html,
 body {
-  background: var(--background);
+  /* Default to footer ink so nothing cream can show past the page end.
+     OverscrollFills / .gl-bounce-* handle the top gingham pull. */
+  background-color: #1a1a1a;
   color: var(--foreground);
 }
 
 body {
   font-family: var(--font-archivo), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+/* Top pull solid fallback = gingham blue cell (never cream) */
+html.gl-bounce-gingham,
+html.gl-bounce-gingham body {
+  background-color: #87aed0;
+}
+html.gl-bounce-ink,
+html.gl-bounce-ink body {
+  background-color: #1a1a1a;
+}
+
+/* Fixed fills: stay behind the page so a pull reveals gingham / ink, not cream */
+.gl-bounce-fill {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.gl-bounce-fill-gingham {
+  background-color: var(--color-cream);
+  background-image:
+    linear-gradient(90deg, rgba(15, 102, 184, 0.48) 50%, transparent 50%),
+    linear-gradient(rgba(15, 102, 184, 0.48) 50%, transparent 50%);
+  background-size: 40px 40px;
+}
+@media (min-width: 1024px) {
+  .gl-bounce-fill-gingham { background-size: 56px 56px; }
+}
+.gl-bounce-fill-ink {
+  background: #1a1a1a;
+  opacity: 0;
+}
+html.gl-bounce-ink .gl-bounce-fill-gingham { opacity: 0; }
+html.gl-bounce-ink .gl-bounce-fill-ink { opacity: 1; }
 
 /* Utility: Archivo Black — ASCII / Latin-only (no Vietnamese glyphs) */
 .font-archivo-black {
@@ -80,7 +115,7 @@ body {
      returns are faster than lifts, one ambient loop (the sticker).
      ========================================================================== */
   .gl-root section[id],
-  .gl-root footer[id] { scroll-margin-top: 72px; }
+  footer[id] { scroll-margin-top: 72px; }
 
   /* wordmark letters hop */
   .gl-hop span { display: inline-block; transform: var(--t, none); transition: transform 0.18s ease-out, color 0.15s; }

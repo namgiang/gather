@@ -7,7 +7,7 @@ export default function About() {
       className="relative isolate overflow-clip border-t-2 border-ink bg-cobalt text-cream"
     >
       {/* Swap the photo by replacing public/cooking/about-polaroid.jpg (any size; it is cropped square). */}
-      <figure className="absolute bottom-10 right-6 m-0 w-[210px] rotate-3 bg-white p-2.5 pb-9 shadow-[0_10px_24px_rgba(8,40,80,.35)] lg:bottom-auto lg:right-[calc(50%-540px)] lg:top-1/2 lg:w-[340px] lg:-translate-y-1/2 lg:p-3.5 lg:pb-14">
+      <figure className="absolute bottom-6 right-5 m-0 w-[180px] rotate-3 bg-white p-2 pb-7 shadow-[0_10px_24px_rgba(8,40,80,.35)] lg:bottom-auto lg:right-[calc(50%-540px)] lg:top-1/2 lg:w-[340px] lg:-translate-y-1/2 lg:p-3.5 lg:pb-14">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="cooking/about-polaroid.jpg"
@@ -16,11 +16,11 @@ export default function About() {
           decoding="async"
           className="block aspect-square w-full object-cover"
         />
-        <figcaption className="mt-2 text-center font-hand text-[20px] leading-none text-ink lg:mt-3 lg:text-[28px]">
+        <figcaption className="mt-1.5 text-center font-hand text-[18px] leading-none text-ink lg:mt-3 lg:text-[28px]">
           the crew, mid-service
         </figcaption>
       </figure>
-      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[330px] pt-16 lg:gap-7 lg:pb-28 lg:pt-28">
+      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-[18px] px-6 pb-[250px] pt-12 lg:gap-7 lg:pb-28 lg:pt-28">
         <Hearts left="#E0301E" right="#F6F1E7" className="hidden lg:block" />
         <p className="m-0 text-[13px] font-bold uppercase tracking-[.1em] lg:text-sm">
           About Gather

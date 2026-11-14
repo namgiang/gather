@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, Archivo_Black, Caveat } from "next/font/google";
 import "./globals.css";
 import ChopsticksCursor from "./_components/ChopsticksCursor";
@@ -39,15 +39,19 @@ export const metadata: Metadata = {
     "A community food collective in Amsterdam. We cook TCM dinners, street food snacks and Iftar dinners, and bring people together over good food and stories.",
 };
 
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="gl-bounce-gingham">
       <body
-        className={`${archivoBlack.variable} ${archivoDisplay.variable} ${archivo.variable} ${caveat.variable} antialiased`}
+        className={`${archivoBlack.variable} ${archivoDisplay.variable} ${archivo.variable} ${caveat.variable} relative antialiased`}
       >
         {children}
         <ChopsticksCursor />

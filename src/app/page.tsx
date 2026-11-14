@@ -5,6 +5,7 @@ import GatheringsIndex from "./_components/home/GatheringsIndex";
 import GoiCuon from "./_components/home/GoiCuon";
 import Hero from "./_components/home/Hero";
 import { LightboxProvider } from "./_components/home/Lightbox";
+import OverscrollFills from "./_components/home/OverscrollFills";
 import SiteFooter from "./_components/home/SiteFooter";
 import SiteHeader from "./_components/home/SiteHeader";
 import TcmDinner from "./_components/home/TcmDinner";
@@ -13,7 +14,8 @@ import { Hearts } from "./_components/home/ui";
 export default function Home() {
   return (
     <LightboxProvider>
-      <div className="gl-root bg-cream text-ink">
+      <OverscrollFills />
+      <div className="gl-root relative z-[1] bg-cream text-ink">
         <SiteHeader />
         <main id="main-content">
           <Hero />
@@ -28,6 +30,9 @@ export default function Home() {
           <Book />
           <About />
         </main>
+      </div>
+      {/* Outside the cream root so no cream hairline can peek under the ink */}
+      <div className="relative z-[1]">
         <SiteFooter />
       </div>
     </LightboxProvider>
