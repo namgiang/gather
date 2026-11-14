@@ -62,7 +62,7 @@ export default function Book() {
               aria-hidden="true"
               className="gl-gingham absolute left-1/2 top-[14%] -z-10 h-[72%] w-screen -translate-x-1/2 border-y-2 border-ink lg:hidden"
             />
-            <div className="relative w-full max-w-[420px]">
+            <div className="relative w-full max-w-[420px] lg:max-w-[460px]">
             {/* desktop: gingham runner running top to bottom behind the photo */}
             <div
               aria-hidden="true"
@@ -78,7 +78,7 @@ export default function Book() {
                 className="block aspect-[4/3.4] w-full rounded-[12px] object-cover lg:rounded-[16px]"
                 style={{ objectPosition: "50% 35%" }}
               />
-              <figcaption className="absolute -bottom-6 -left-3 w-[170px] -rotate-6 bg-sky px-3.5 pb-3.5 pt-3 font-hand text-[22px] leading-[1.05] text-cobalt-deep shadow-[0_8px_18px_rgba(60,40,20,.18)] lg:-bottom-8 lg:-left-6 lg:w-[220px] lg:text-[26px]">
+              <figcaption className="absolute -bottom-6 -left-3 w-[170px] -rotate-6 bg-sky px-3.5 pb-3.5 pt-3 font-hand text-[22px] leading-[1.05] text-cobalt-deep shadow-[0_8px_18px_rgba(60,40,20,.18)] lg:-left-[130px] lg:bottom-[2%] lg:w-[220px] lg:-rotate-[5deg] lg:text-[26px]">
                 tell us what you&apos;re planning ♡
               </figcaption>
             </figure>

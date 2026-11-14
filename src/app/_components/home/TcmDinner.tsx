@@ -17,7 +17,7 @@ export default function TcmDinner() {
       type="button"
       onClick={() => open("tcm", course.photo)}
       aria-label={`View ${course.stage} photo larger`}
-      className={`gl-pbtn relative w-full overflow-hidden border-2 border-ink bg-[#E9D2AE] ${className}`}
+      className={`gl-pbtn relative w-full overflow-hidden border-2 border-ink bg-[#E9D2AE] shadow-[6px_8px_0_#1A1A1A] lg:shadow-[8px_10px_0_#1A1A1A] ${className}`}
     >
       <img
         key={course.n}
@@ -113,7 +113,7 @@ export default function TcmDinner() {
 
         {/* desktop collage */}
         <div className="relative hidden min-h-[760px] min-w-0 flex-[1.3_1_520px] lg:block">
-          {mainPhoto("h-[440px] rounded-[22px]", false)}
+          {mainPhoto("h-[440px] rotate-[1deg] rounded-[22px]", false)}
           <Polaroid
             group="tcm"
             index={6}

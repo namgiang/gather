@@ -124,7 +124,7 @@ export const COM = {
   kind: "Community",
   tag: "100% halal",
   title: "Big pots for the neighbours",
-  intro: "Catering for a neighbourhood event: two curries, a Vietnamese salad and cookies.",
+  intro: "80 portions for a neighbourhood event: two curries, a Vietnamese salad and cookies.",
   menu: [
     { dish: "Two curries", note: "Vietnamese chicken · vegan jackfruit" },
     { dish: "Vietnamese salad", note: "grapefruit, peanut, carrot, nước chấm" },

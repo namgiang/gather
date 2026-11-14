@@ -6,10 +6,14 @@ import { useEffect, useRef, useState } from "react";
 /**
  * Sticky header that slides away while you scroll down and comes back the moment
  * you scroll up (or focus something inside it), so "Say Hi" is never far away.
+ *
+ * In-page hash links pin it visible for a beat so scroll-margin space is covered
+ * by the header instead of a strip of the previous section.
  */
 export default function SiteHeader() {
   const [hidden, setHidden] = useState(false);
   const ref = useRef<HTMLElement | null>(null);
+  const pinUntil = useRef(0);
 
   useEffect(() => {
     let last = window.scrollY;
@@ -23,8 +27,9 @@ export default function SiteHeader() {
         setHidden(false);
         last = y;
       } else if (dy > 8) {
-        // keep it visible while a keyboard user is inside it
-        if (!ref.current?.contains(document.activeElement)) setHidden(true);
+        const pinned = Date.now() < pinUntil.current;
+        const focusInside = ref.current?.contains(document.activeElement);
+        if (!pinned && !focusInside) setHidden(true);
         last = y;
       } else if (dy < -8) {
         setHidden(false);
@@ -38,8 +43,26 @@ export default function SiteHeader() {
       requestAnimationFrame(update);
     };
 
+    const pin = () => {
+      setHidden(false);
+      // long enough to cover smooth scroll + settle
+      pinUntil.current = Date.now() + 1500;
+    };
+
+    const onClick = (e: MouseEvent) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      if (t.closest('a[href^="#"]')) pin();
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("hashchange", pin);
+    document.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", pin);
+      document.removeEventListener("click", onClick);
+    };
   }, []);
 
   return (

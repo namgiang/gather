@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { TCM_PHOTOS } from "../../_data/events";
-import { PhotoButton, Sticker, StickerLayer } from "./ui";
+import { PhotoButton } from "./ui";
 
 const LETTERS: { c: string; t?: string; accent?: boolean }[] = [
   { c: "G", t: "rotate(-4deg)" },
@@ -17,13 +17,6 @@ export default function Hero() {
   const crew = TCM_PHOTOS[0];
   return (
     <div className="gl-gingham relative isolate overflow-clip lg:border-b-2 lg:border-ink">
-      <StickerLayer>
-        <Sticker
-          src="leaves/leaf-cut.webp"
-          m={{ left: -140, bottom: 30, w: 290, rot: -72 }}
-          d={{ left: -140, top: 97, w: 500, rot: 104, flip: true }}
-        />
-      </StickerLayer>
     <section
       id="top"
       className="relative mx-auto max-w-[1280px] px-6 pb-16 pt-[22px] lg:pb-24 lg:pt-8"
@@ -96,7 +89,7 @@ export default function Hero() {
         </div>
 
         {/* a sticky note that stays put */}
-        <div className="absolute -bottom-[34px] -left-2.5 w-[170px] -rotate-6 bg-white px-3.5 pb-3.5 pt-3 font-hand text-cobalt text-[22px] leading-[1.05] shadow-[0_8px_18px_rgba(60,40,20,.18)] lg:-bottom-10 lg:-left-3 lg:w-[230px] lg:px-5 lg:pb-[22px] lg:pt-[18px] lg:text-[28px] lg:shadow-[0_10px_24px_rgba(60,40,20,.18)]">
+        <div className="absolute -bottom-[34px] -left-2.5 w-[200px] -rotate-6 bg-white px-3.5 pb-3.5 pt-3 font-hand text-cobalt text-[21px] leading-[1.05] shadow-[0_8px_18px_rgba(60,40,20,.18)] lg:-bottom-10 lg:-left-3 lg:w-[230px] lg:px-5 lg:pb-[22px] lg:pt-[18px] lg:text-[28px] lg:shadow-[0_10px_24px_rgba(60,40,20,.18)]">
           3 gatherings so far,
           <br />
           everyone gets a seat ♡

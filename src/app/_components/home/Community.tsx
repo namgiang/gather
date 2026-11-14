@@ -1,7 +1,7 @@
 "use client";
 
 import { COM, COM_PHOTOS } from "../../_data/events";
-import { Polaroid, Sticker, StickerLayer, eyebrow } from "./ui";
+import { Hearts, Polaroid, Sticker, StickerLayer, eyebrow } from "./ui";
 
 const icons = [
   <svg key="curry" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E0301E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -35,15 +35,25 @@ export default function Community() {
         <Sticker
           src="leaves/lotus-c.webp"
           m={{ right: 8, bottom: 6, w: 170, rot: 7 }}
-          d={{ left: "calc(50% - 125px)", top: 48, w: 250, rot: 4 }}
         />
       </StickerLayer>
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-8 flex justify-start pl-[60px] lg:bottom-11 lg:justify-center lg:pl-0">
+        <Hearts left="#E0301E" right="#0F66B8" width={64} />
+      </div>
     <section
       id="community"
-      className="relative mx-auto max-w-[1100px] px-6 pb-[130px] pt-[96px] lg:pb-24 lg:pt-44"
+      className="relative mx-auto max-w-[1280px] px-6 pb-[130px] pt-[96px] lg:pb-32 lg:pt-36"
     >
-      <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-10">
-        <div className="gl-checker-sky -rotate-[1.5deg] rounded-[20px] p-5 lg:min-w-0 lg:max-w-[460px] lg:flex-[1_1_360px] lg:-rotate-2 lg:rounded-[22px] lg:p-7">
+      <div className="flex flex-col lg:flex-row lg:flex-wrap lg:flex-nowrap lg:items-center lg:justify-between lg:gap-10">
+        <div className="gl-checker-sky relative -rotate-[1.5deg] rounded-[20px] p-5 lg:min-w-0 lg:max-w-[520px] lg:flex-[1_1_380px] lg:-rotate-2 lg:rounded-[22px] lg:p-7">
+          {/* desktop: the lotus is pressed onto the card's corner */}
+          <img
+            src="leaves/lotus-c.webp"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            className="gl-sticker pointer-events-none absolute -right-[92px] -top-[118px] hidden w-[230px] max-w-none rotate-[10deg] lg:block"
+          />
           <p className={`${eyebrow} !text-xs text-cobalt lg:!text-sm`}>
             {COM.no} · {COM.kind} · {COM.tag}
           </p>
@@ -78,11 +88,11 @@ export default function Community() {
         </div>
 
         {/* desktop: loose pile */}
-        <div className="relative hidden h-[660px] min-w-0 flex-[0_1_480px] lg:block">
-          <Polaroid group="com" index={0} photo={P[0]} rotate={-5} className="absolute left-0 top-0 w-[240px]" imgClassName="h-[280px]" />
-          <Polaroid group="com" index={1} photo={P[1]} rotate={5} className="absolute right-0 top-10 w-[220px]" imgClassName="h-[200px]" />
-          <Polaroid group="com" index={2} photo={P[2]} rotate={2} className="absolute left-2.5 top-[330px] w-[230px]" imgClassName="h-[200px]" />
-          <Polaroid group="com" index={3} photo={P[3]} rotate={-4} className="absolute right-0 top-[320px] w-[230px]" imgClassName="h-[240px]" />
+        <div className="relative hidden h-[700px] min-w-0 flex-[1_1_480px] lg:block lg:max-w-[640px]">
+          <Polaroid group="com" index={0} photo={P[0]} rotate={-5} className="absolute left-0 top-0 w-[50%]" imgClassName="h-[300px]" />
+          <Polaroid group="com" index={1} photo={P[1]} rotate={5} className="absolute right-0 top-10 w-[46%]" imgClassName="h-[230px]" />
+          <Polaroid group="com" index={2} photo={P[2]} rotate={2} className="absolute left-[2%] top-[360px] w-[48%]" imgClassName="h-[220px]" />
+          <Polaroid group="com" index={3} photo={P[3]} rotate={-4} className="absolute right-0 top-[340px] w-[48%]" imgClassName="h-[260px]" />
         </div>
       </div>
     </section>
