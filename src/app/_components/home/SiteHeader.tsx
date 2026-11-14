@@ -12,6 +12,8 @@ import { useEffect, useRef, useState } from "react";
  */
 export default function SiteHeader() {
   const [hidden, setHidden] = useState(false);
+  // while the header sits over the hero gingham it stays see-through; it turns solid once the hero is behind you
+  const [atTop, setAtTop] = useState(true);
   const ref = useRef<HTMLElement | null>(null);
   const pinUntil = useRef(0);
 
@@ -19,9 +21,17 @@ export default function SiteHeader() {
     let last = window.scrollY;
     let ticking = false;
 
+    const syncSurface = () => {
+      const hero = document.getElementById("top")?.parentElement;
+      const bar = ref.current;
+      const limit = hero && bar ? hero.offsetTop + hero.offsetHeight - bar.offsetHeight : 24;
+      setAtTop(window.scrollY < limit);
+    };
+
     const update = () => {
       ticking = false;
       const y = window.scrollY;
+      syncSurface();
       const dy = y - last;
       if (y < 80) {
         setHidden(false);
@@ -55,10 +65,13 @@ export default function SiteHeader() {
       if (t.closest('a[href^="#"]')) pin();
     };
 
+    syncSurface();
+    window.addEventListener("resize", syncSurface);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("hashchange", pin);
     document.addEventListener("click", onClick);
     return () => {
+      window.removeEventListener("resize", syncSurface);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("hashchange", pin);
       document.removeEventListener("click", onClick);
@@ -69,13 +82,19 @@ export default function SiteHeader() {
     <header
       ref={ref}
       onFocusCapture={() => setHidden(false)}
-      className={`sticky top-0 z-20 border-b-2 border-ink bg-cream transition-transform ease-[cubic-bezier(.215,.61,.355,1)] motion-reduce:transition-none ${
-        hidden ? "-translate-y-full duration-[250ms]" : "duration-200"
-      }`}
+      className={`sticky top-0 z-20 h-[70px] border-b-2 transition-[transform,background-color,border-color] ease-[cubic-bezier(.215,.61,.355,1)] motion-reduce:transition-none md:h-[76px] ${
+        atTop ? "border-transparent bg-transparent" : "border-ink bg-cream"
+      } ${hidden ? "-translate-y-full duration-[250ms]" : "duration-200"}`}
     >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-2.5 md:px-6 md:py-3.5">
-        <a href="#top" aria-label="Gather home" className="block leading-[0]">
-          <img src="logo.svg" alt="Gather" className="h-[30px] w-auto md:h-9" />
+      <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between gap-4 px-4 md:px-6">
+        <a
+          href="#top"
+          aria-label="Gather home"
+          className={`grid size-[46px] place-items-center rounded-full border-2 bg-cream leading-[0] transition-colors duration-200 md:size-12 ${
+            atTop ? "border-ink" : "border-transparent"
+          }`}
+        >
+          <img src="logo.svg" alt="Gather" className="h-[24px] w-auto md:h-[26px]" />
         </a>
         <nav aria-label="Primary" className="flex items-center gap-2">
           <a

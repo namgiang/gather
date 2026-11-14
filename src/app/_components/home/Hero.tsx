@@ -16,10 +16,10 @@ const LETTERS: { c: string; t?: string; accent?: boolean }[] = [
 export default function Hero() {
   const crew = TCM_PHOTOS[0];
   return (
-    <div className="gl-gingham relative isolate overflow-clip lg:border-b-2 lg:border-ink">
+    <div className="gl-gingham relative isolate -mt-[70px] overflow-clip md:-mt-[76px] lg:border-b-2 lg:border-ink">
     <section
       id="top"
-      className="relative mx-auto max-w-[1280px] px-6 pb-16 pt-[22px] lg:pb-24 lg:pt-8"
+      className="relative mx-auto max-w-[1280px] px-6 pb-16 pt-[92px] md:pt-[98px] lg:pb-24 lg:pt-[108px]"
     >
       <h1
         aria-label="Gather"
@@ -44,13 +44,13 @@ export default function Hero() {
         <SecondaryCta />
       </div>
 
-      <div className="relative mx-auto mt-[60px] max-w-[1100px] lg:mt-14">
+      <div className="relative mx-auto mt-[58px] max-w-[1100px] lg:mt-14">
         <div className="-rotate-[1.5deg] rounded-[22px] border-2 border-ink bg-white p-2.5 shadow-[6px_8px_0_#1A1A1A] lg:-rotate-[1.2deg] lg:rounded-[28px] lg:p-3.5 lg:shadow-[10px_12px_0_#1A1A1A]">
           <PhotoButton
             group="tcm"
             index={0}
             label="the crew with guests"
-            className="w-full rounded-[10px] lg:rounded-xl"
+            className="w-full overflow-hidden rounded-[10px] lg:rounded-xl"
           >
             <img
               src={crew.src}
@@ -58,7 +58,7 @@ export default function Hero() {
               sizes="(min-width: 1280px) 1060px, 90vw"
               alt={crew.alt}
               loading="eager"
-              className="block h-[300px] w-full rounded-[10px] object-cover lg:h-[clamp(320px,42vw,540px)] lg:rounded-xl"
+              className="block h-[210px] w-full origin-[72%_6%] scale-[1.2] rounded-[10px] object-cover lg:scale-100 lg:h-[clamp(320px,42vw,540px)] lg:rounded-xl"
               style={{ objectPosition: "50% 41%" }}
             />
           </PhotoButton>
@@ -89,7 +89,7 @@ export default function Hero() {
         </div>
 
         {/* a sticky note that stays put */}
-        <div className="absolute -bottom-[34px] -left-2.5 w-[200px] -rotate-6 bg-white px-3.5 pb-3.5 pt-3 font-hand text-cobalt text-[21px] leading-[1.05] shadow-[0_8px_18px_rgba(60,40,20,.18)] lg:-bottom-10 lg:-left-3 lg:w-[230px] lg:px-5 lg:pb-[22px] lg:pt-[18px] lg:text-[28px] lg:shadow-[0_10px_24px_rgba(60,40,20,.18)]">
+        <div className="absolute -bottom-[52px] -left-2.5 w-[200px] -rotate-6 bg-white px-3.5 pb-3.5 pt-3 font-hand text-cobalt text-[21px] leading-[1.05] shadow-[0_8px_18px_rgba(60,40,20,.18)] lg:-bottom-10 lg:-left-3 lg:w-[230px] lg:px-5 lg:pb-[22px] lg:pt-[18px] lg:text-[28px] lg:shadow-[0_10px_24px_rgba(60,40,20,.18)]">
           3 gatherings so far,
           <br />
           everyone gets a seat ♡
@@ -97,8 +97,8 @@ export default function Hero() {
       </div>
 
       {/* phone: promise + CTAs after the photo */}
-      <Promise className="mt-[62px] lg:hidden" />
-      <div className="mt-6 flex flex-col items-center gap-3 lg:hidden">
+      <Promise short className="mt-[84px] lg:hidden" />
+      <div className="mt-5 flex flex-col items-center gap-3 lg:hidden">
         <PrimaryCta />
         <SecondaryCta />
       </div>
@@ -107,14 +107,23 @@ export default function Hero() {
   );
 }
 
-function Promise({ className = "" }: { className?: string }) {
+function Promise({ className = "", short = false }: { className?: string; short?: boolean }) {
   return (
     <p
-      className={`relative mx-auto max-w-[740px] -rotate-[0.6deg] rounded-[20px] border-2 border-ink bg-cream px-5 py-[18px] text-center text-[17px] font-medium leading-[1.45] lg:rounded-[22px] lg:px-8 lg:py-[22px] lg:text-[clamp(19px,2vw,23px)] ${className}`}
+      className={`relative mx-auto max-w-[740px] -rotate-[0.6deg] rounded-[20px] border-2 border-ink bg-cream px-5 py-[14px] text-center text-[16px] font-medium leading-[1.4] lg:rounded-[22px] lg:px-8 lg:py-[22px] lg:text-[clamp(19px,2vw,23px)] ${className}`}
     >
-      A community food collective in Amsterdam. We cook everything from TCM dinners
-      and street food snacks to Iftar dinners, and bring people together over good
-      food and stories. Come as you are, bring who you love.
+      {short ? (
+        <>
+          A community food collective in Amsterdam. We cook TCM dinners, street food and
+          Iftar dinners. Come as you are, bring who you love.
+        </>
+      ) : (
+        <>
+          A community food collective in Amsterdam. We cook everything from TCM dinners
+          and street food snacks to Iftar dinners, and bring people together over good
+          food and stories. Come as you are, bring who you love.
+        </>
+      )}
     </p>
   );
 }
